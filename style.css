@@ -1,0 +1,155 @@
+.bgcolor{
+    background-color:rgb(233, 233, 233);
+    text-align: center;
+    margin: 0px;
+}
+
+.logoHome{
+    margin-top: 8%;
+    width: 20%;
+    height: 180px;
+}
+
+.buttonInside{
+    position:relative;
+    margin-bottom:10px;
+  }
+
+  .box{
+      position: absolute;
+      top: 50%;
+      left:50%;
+      width: 800px;
+      transform: translate(-50%,-50%);
+  }
+
+  .inputForSearch .submitForSearch{
+      position: relative;
+      display: inline-block;
+      font-size: 20px;
+      box-sizing: border-box;
+      transition: .5s;
+  }
+
+  .inputForSearch{
+      background: #ffffff;
+      width: 80%;
+      height: 50px;
+      border: none;
+      outline: none;
+      padding:  0 25px;
+      border-radius: 10px 0 0 10px;
+  }
+
+  .submitForSearch{
+    background: #ff954e;
+    position: relative;
+    left: -5px;
+    width: 2%;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding:  0 25px;
+    border-radius: 0 10px 10px 0;
+    padding-right: 40px;
+    color: #ffffff;
+
+}
+
+.submitForSearch:hover{
+    background: #fab688;
+    position: relative;
+    left: -6px;
+    width: 2%;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding:  0 25px;
+    border-radius: 0 10px 10px 0;
+    padding-right: 40px;
+    color: #ffffff;
+
+}
+
+.filter{
+    position:absolute;
+    border:none;
+    height:20px;
+    width:20px;
+    top: 10px;
+    left: 640px;
+    font-size: large;
+    background-color: #ffffff;
+  }
+
+.recommend{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    margin-left: 200px;
+    
+    width: 80%;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.dd-option-image {
+
+    max-width: 25px !important;
+
+}
+.dd-selected-image {
+
+    max-width: 25px !important;
+
+}
+
+select::-ms-expand {	display: none; }
+
+div.ex1{
+    margin: 35px;
+  }
+  
+  div.ex2{
+      margin-top:35px
+  }
+
+.typeNav{
+    background: #ffffff;
+    width: 80%;
+    height: 45px;
+    border: none;
+    outline: none;
+    padding:  0 25px;
+    border-radius: 10px 0 0 10px;
+}
+
+.searchNav{
+    
+    background: #ff954e;
+    position: relative;
+    left: -5px;
+    width: 2%;
+    height: 45px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding:  0 25px;
+    border-radius: 0 10px 10px 0;
+    padding-right: 40px;
+    color: #ffffff;
+}
+
+.filterNav{
+    
+    position:absolute;
+    border:none;
+    height:20px;
+    width:20px;
+    top: 15px;
+    left: 540px;
+    font-size: large;
+    background-color: #ffffff;
+}
