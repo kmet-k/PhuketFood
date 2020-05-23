@@ -1,0 +1,50 @@
+[
+  {
+    "id_Type": "t_001",
+    "type": "Soup"
+  },
+  {
+    "id_Type": "t_002",
+    "type": "Noodle"
+  },
+  {
+    "id_Type": "t_003",
+    "type": "Cold dishes"
+  },
+  {
+    "id_Type": "t_004",
+    "type": "Rice"
+  },
+  {
+    "id_Type": "t_005",
+    "type": "Curry"
+  },
+  {
+    "id_Type": "t_006",
+    "type": "Barbecue"
+  },
+  {
+    "id_Type": "t_007",
+    "type": "Stir-fry"
+  },
+  {
+    "id_Type": "t_008",
+    "type": "Fried"
+  },
+  {
+    "id_Type": "t_009",
+    "type": "Dessert and snack"
+  },
+  {
+    "id_Type": "t_010",
+    "type": "Beverage"
+  },
+  {
+    "id_Type": "t_011",
+    "type": "Fruit"
+  },
+  {
+    "id_Type": "t_012",
+    "type": "Other types"
+  }
+]

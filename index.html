@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Home</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+  <script src="script/app.js"></script>
+</head>
+
+<body class="bgcolor">
+
+  <!-- <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand"></a>
+
+
+    <div class="form-group ml-auto" style="width: 10px; margin-bottom: 3px; margin-left: 1720px;"></div>
+    <select class="" id="slick">
+      <option value="English" onclick='setlang("eng")'
+        data-imagesrc="https://sites1.christophlutz.co.uk/gbmag/wp-content/uploads/2017/01/UK-flag-union-jack-1024x683.jpg">
+      </option>
+      <option value="Chinese" onclick="setlang('cn')"
+        data-imagesrc="https://images-na.ssl-images-amazon.com/images/I/51VQMvWgzML._AC_SL1500_.jpg"></option>
+      <option value="Thai" onclick="setlang('en')"
+        data-imagesrc="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/1200px-Flag_of_Thailand.svg.png">
+      </option>
+    </select>
+    </div>
+  </nav> -->
+
+  <div class="imglogo">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/5471769969637.560dd4b8d6c3a.png">
+
+  </div>
+  
+
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="searchBar row col-8" style="padding-right: 0px;">
+      <div class="col-10" style="padding: 0;">
+        <input type="text" placeholder="search" id="search" class="col-12 inputSearch">
+      </div>
+      <div class="col-1" style="padding: 0;">
+        <i class="fas fa-filter iconFilter" data-toggle="modal" data-target="#myFilter"></i>
+      </div>
+      <div class="col-1" style="padding: 0px;">
+        <button type="button " class="searchBtn" onclick="searchNow()"><i class="fas fa-search "></i></button>
+      </div>
+    </div>
+    <div class="col-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-2"></div>
+    <div class=" row col-8" style="left: 16.66%; padding-right: 0px; z-index: 55; position: absolute;">
+      <div class="col-10" style="padding: 0;" id="result">
+      </div>
+      <div class="col-1" style="padding: 0;">
+        
+      </div>
+      <div class="col-1" style="padding: 0px;">
+      </div>
+    </div>
+    <div class="col-2"></div><div class="col-2"></div>
+    
+    
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="row col-8" style="padding-right: 0px;">
+      <div class="col-10" style="margin-top: 5px; margin-left: 40px; padding: 0; text-align: left; font-size: 3px; color: rgb(233, 233, 233);" id="by">
+         asdasdasdads
+      </div>
+      <div class="col-1" style="padding: 0;">
+        
+      </div>
+      <div class="col-1" style="padding: 0px;">
+        
+      </div>
+    </div>
+    <div class="col-2"></div>
+  </div>
+
+
+  <div id="demo" class="carousel slide" data-ride="carousel" style="margin-top: 5%;">
+
+    <!-- Indicators -->
+    <!-- <ul class="carousel-indicators" style="top:100%;">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul> -->
+
+    <!-- The slideshow -->
+    <!-- <div class="container carousel-inner no-padding">
+      <div class="carousel-item active" id="carousel1">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <img
+            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <img
+            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <img
+            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <img
+            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+        </div>
+      </div>
+      <div class="carousel-item" id="carousel2">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <img
+            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <img
+            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <img
+            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <img
+            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+        </div>
+      </div>
+      <div class="carousel-item" id="carousel3">
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <img
+            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <img
+            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <img
+            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+        </div>
+        <div class="col-xs-3 col-sm-3 col-md-3">
+          <img
+            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+        </div>
+      </div>
+    </div>
+
+  </div> -->
+
+
+
+
+
+  <div class="modal fade" id="myFilter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <span>Type</span>
+          <hr>
+          <div class="type" id="type"></div>
+          <hr><span>Meat</span>
+          <hr>
+          <div class="meat" id="meat"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+  <script>
+    $("#slick").ddslick({
+      width: "60px",
+      imagePosition: "left",
+      selectText: "Select your social network",
+      onSelected: function (data) {
+        $("#selected").html(data.selectedData.value);
+      }
+    })
+
+  </script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

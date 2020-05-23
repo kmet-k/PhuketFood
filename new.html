@@ -2,141 +2,147 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>Result</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="script/result.js"></script>
 </head>
 
 <body class="bgcolor">
 
-    <nav class="navbar navbar-light bg-light">
-        <div style="width: 35%;">
-            <input class="typeNav" type="text"></input>
-            <button class="filterNav" data-toggle="modal" data-target="#myFilter"><i class="fa fa-filter"
-                    aria-hidden="true"></i></button>
-            <button class="searchNav"><i class="fa fa-search"></i></button>
+    <!-- <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand"></a>
+
+
+        <div class="form-group ml-auto" style="width: 10px; margin-bottom: 3px; margin-left: 1720px;"></div>
+        <select class="" id="slick">
+            <option value="English" onclick='setlang("eng")'
+                data-imagesrc="https://sites1.christophlutz.co.uk/gbmag/wp-content/uploads/2017/01/UK-flag-union-jack-1024x683.jpg">
+            </option>
+            <option value="Chinese" onclick="setlang('cn')"
+                data-imagesrc="https://images-na.ssl-images-amazon.com/images/I/51VQMvWgzML._AC_SL1500_.jpg"></option>
+            <option value="Thai" onclick="setlang('en')"
+                data-imagesrc="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/1200px-Flag_of_Thailand.svg.png">
+            </option>
+        </select>
         </div>
-
-        <div class="form-group" style="width: 180px; margin-bottom: 3px; margin-left: 1040px;">
-            <select name="" id="slick">
-                <option value="English"
-                    data-imagesrc="https://sites1.christophlutz.co.uk/gbmag/wp-content/uploads/2017/01/UK-flag-union-jack-1024x683.jpg">
-                </option>
-                <option value="Chinese"
-                    data-imagesrc="https://images-na.ssl-images-amazon.com/images/I/51VQMvWgzML._AC_SL1500_.jpg">
-                </option>
-                <option value="Thai"
-                    data-imagesrc="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/1200px-Flag_of_Thailand.svg.png">
-                </option>
-            </select>
-        </div>
+    </nav> -->
 
 
-    </nav>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-11" id="head" class="text" style="text-align: left;"> search by "&nbsp;<label id="text" class="text">
+            </label>&nbsp;"</div>
+    </div>
 
-    <div class="ex2">
-        <div class="ex1">
-            <div class="row">
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <img class="card-img-top" src="https://i.ytimg.com/vi/apGUaKyC42E/maxresdefault.jpg"
-                                alt="Card image cap">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <img class="card-img-top" src="https://i.ytimg.com/vi/apGUaKyC42E/maxresdefault.jpg"
-                                alt="Card image cap">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <img class="card-img-top" src="https://i.ytimg.com/vi/apGUaKyC42E/maxresdefault.jpg"
-                                alt="Card image cap">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <img class="card-img-top" src="https://i.ytimg.com/vi/apGUaKyC42E/maxresdefault.jpg"
-                                alt="Card image cap">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-11" class="by" id="by" style="text-align: left; font-size: 1px; color:rgb(173, 173, 173)">
+            search by
         </div>
     </div>
 
-    <div class="ex1">
-        <div class="row">
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <img class="card-img-top" src="https://i.ytimg.com/vi/apGUaKyC42E/maxresdefault.jpg"
-                            alt="Card image cap">
-                    </div>
-                </div>
-            </div>
+    
 
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <img class="card-img-top" src="https://i.ytimg.com/vi/apGUaKyC42E/maxresdefault.jpg"
-                            alt="Card image cap">
-                    </div>
-                </div>
-            </div>
+        <div class="row" id="cardResult">
 
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <img class="card-img-top" src="https://i.ytimg.com/vi/apGUaKyC42E/maxresdefault.jpg"
-                            alt="Card image cap">
-                    </div>
-                </div>
-            </div>
+            <!-- <div class="col col-3" style="margin-top:2%; ">
+                <div class="card col-10" style=" margin:auto">
+                    <div class="card-body" style="padding-right:0px; padding-left:0px">
+                        <div class="row">
+                            <div class="col-9" style="text-align: left; font-size: 20px; border-bottom: 5px;"
+                                id="name">
+                                name
+                            </div>
+                            <div class="col-2 spicy" id="spicy"
+                                style="border-radius: 15px 15px 15px 15px; background-color: rgb(119, 2, 2);">
+                            </div>
+                        </div>
 
-            <div class="col">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <img class="card-img-top" src="https://i.ytimg.com/vi/apGUaKyC42E/maxresdefault.jpg"
-                            alt="Card image cap">
+                        <div class="imgCard">
+
+                        </div>
+                        
+                        
                     </div>
                 </div>
-            </div>
+            </div> -->
+
 
         </div>
-    </div>
+    
+
+        <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style=" margin-left: 50px;"></h5> <div id="rex" class="rec "> </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                <div class="modal-body">
+                    <div id="moreName" class="row" style="margin-left:2%; margin-bottom: 2%;">
+                        <div id="name2">
+                            罗勒叶炒猪肉饭
+                        </div><div id="slash" class="col-1">
+                            /
+                        </div>
+                        <div id="name3">
+                            ข้าวไก่ไห่หนาน
+                        </div>
+                    </div>
+                   <div class="row" style="margin-left:2%; margin-bottom: 2%;">
+                       <div id="type" > noodle </div>
+                       <div id="meatModal"  class="col-1 meatModal">  </div>
+                   </div>
+                    <div id="imgModal"class="imgModal">
+
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
 
 
+
+
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script>
+        $("#slick").ddslick({
+            width: "60px",
+            imagePosition: "left",
+            selectText: "Select your social network",
+            onSelected: function (data) {
+                $("#selected").html(data.selectedData.value);
+            }
+        })
+
+    </script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -149,24 +155,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
-    <script>
-        $("#slick").ddslick({
-            width: "60%",
-            imagePosition: "left",
-            selectText: "Select your social network",
-            onSelected: function (data) {
-                $("#selected").html(data.selectedData.value);
-            }
-
-
-        })
-    </script>
 
 </body>
 

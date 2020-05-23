@@ -1,0 +1,38 @@
+[
+  {
+    "id_Meat": "m_001",
+    "meat": "Pork"
+  },
+  {
+    "id_Meat": "m_002",
+    "meat": "Chicken"
+  },
+  {
+    "id_Meat": "m_003",
+    "meat": "Beef"
+  },
+  {
+    "id_Meat": "m_004",
+    "meat": "Fish"
+  },
+  {
+    "id_Meat": "m_005",
+    "meat": "Shrimp"
+  },
+  {
+    "id_Meat": "m_006",
+    "meat": "Crab"
+  },
+  {
+    "id_Meat": "m_007",
+    "meat": "Shellfish"
+  },
+  {
+    "id_Meat": "m_008",
+    "meat": "Squid"
+  },
+  {
+    "id_Meat": "m_009",
+    "meat": "Others"
+  }
+]

@@ -4,92 +4,67 @@
     margin: 0px;
 }
 
-.logoHome{
-    margin-top: 8%;
-    width: 20%;
-    height: 180px;
-}
 
 .buttonInside{
     position:relative;
     margin-bottom:10px;
   }
 
-  .box{
-      position: absolute;
-      top: 50%;
-      left:50%;
-      width: 800px;
-      transform: translate(-50%,-50%);
-  }
-
-  .inputForSearch .submitForSearch{
-      position: relative;
-      display: inline-block;
-      font-size: 20px;
-      box-sizing: border-box;
-      transition: .5s;
-  }
-
-  .inputForSearch{
-      background: #ffffff;
-      width: 80%;
-      height: 50px;
-      border: none;
-      outline: none;
-      padding:  0 25px;
-      border-radius: 10px 0 0 10px;
-  }
-
-  .submitForSearch{
-    background: #ff954e;
-    position: relative;
-    left: -5px;
-    width: 2%;
-    height: 50px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding:  0 25px;
-    border-radius: 0 10px 10px 0;
-    padding-right: 40px;
-    color: #ffffff;
-
+.searchBar{
+  margin-left: auto;
+  margin-top: 3%;
+  width: 65%;
+  background-color: white;
+  border-radius: 10px 10px 10px 10px;
+}
+ 
+.inputSearch{
+  border: none;
+  outline: none;
+  height: 50px;
+  font-size: 15px;
 }
 
-.submitForSearch:hover{
-    background: #fab688;
-    position: relative;
-    left: -6px;
-    width: 2%;
-    height: 50px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding:  0 25px;
-    border-radius: 0 10px 10px 0;
-    padding-right: 40px;
-    color: #ffffff;
-
+.iconFilter{
+  padding-top: 18px;
+  padding-left: 18px;
+  color: orange;
+  
+  cursor: pointer;
+}
+.searchBtn{
+  color: white;
+  background-color: orange;
+  width: 100%; 
+  margin-left: auto;
+  height: 50px;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  border-radius: 0 10px 10px 0;
+  
+  cursor: pointer;
 }
 
-.filter{
-    position:absolute;
-    border:none;
-    height:20px;
-    width:20px;
-    top: 10px;
-    left: 640px;
-    font-size: large;
-    background-color: #ffffff;
-  }
+.searchBtn:hover{
+  color: white;
+  background-color: rgb(252, 194, 86);
+  width: 100%;
+  height: 50px;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  border-radius: 0 10px 10px 0;
+  
+  cursor: pointer;
+}
 
 .recommend{
     position: absolute;
     text-align: center;
+    left: -6px;
     top: 60%;
     margin-left: 200px;
-    
     width: 80%;
     padding-left: 200px;
     padding-right: 200px;
@@ -108,8 +83,9 @@
 
 select::-ms-expand {	display: none; }
 
-div.ex1{
-    margin: 35px;
+    div.ex1{
+      margin-left: auto;
+      margin-right: auto;
   }
   
   div.ex2{
@@ -122,12 +98,10 @@ div.ex1{
     height: 45px;
     border: none;
     outline: none;
-    padding:  0 25px;
     border-radius: 10px 0 0 10px;
 }
 
 .searchNav{
-    
     background: #ff954e;
     position: relative;
     left: -5px;
@@ -136,14 +110,12 @@ div.ex1{
     border: none;
     outline: none;
     cursor: pointer;
-    padding:  0 25px;
     border-radius: 0 10px 10px 0;
     padding-right: 40px;
     color: #ffffff;
 }
 
 .filterNav{
-    
     position:absolute;
     border:none;
     height:20px;
@@ -153,3 +125,218 @@ div.ex1{
     font-size: large;
     background-color: #ffffff;
 }
+
+.imglogo{
+    margin-left:auto;
+    margin-top:8%;
+    width: 100%;
+    height: auto;
+}
+
+.boxSearch{
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+    margin-top: 3%;
+    width: 70%;
+}
+
+
+.dialog{
+  display: inline-block;
+  background-color: white;
+  width: 70%;
+  height: 10px;
+    
+}
+
+.col-md-3{
+    margin-left:-4px;
+    display: inline-block;
+  }
+  .col-md-3 img{
+    width:100%;
+    height:auto;
+  }
+  body .carousel-indicators li{
+    background-color:purple;
+  }
+  body .carousel-control-prev-icon,
+  body .carousel-control-next-icon{
+    background-color:purple;
+  }
+  body .no-padding{
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .filterbtn{
+    background-color: orange;
+    color: white;
+    border: none;
+    outline: none;
+    height: 0px;
+  }
+  .filterbtn:hover{
+    background-color: rgb(255, 183, 49);
+    color: white;
+    border: none;
+    outline: none;
+  }
+  
+
+
+  .type{
+    width: 100%;
+    height: 110px;
+    overflow-y: scroll;
+  }
+  .meat{
+    width: 100%;
+    height: 110px;
+    overflow-y: scroll;
+  }
+
+  .typeCheck {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: left;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .typeCheck input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .typeCheck:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .typeCheck input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .typeCheck input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .typeCheck .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 1px 1px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  .text{
+    text-align: left;
+    margin-top: 2%;
+    font-size: 38px;
+    
+  }
+
+  .spicy{
+    /* background-image: url('img/spicy.png'); */
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: auto;
+    background-position: center; 
+    position: relative;
+    display: inline-block;
+  }
+  .card-img-top{
+    height: 200px;
+  }
+
+  .imgModal{
+     /* background-image: url('https://firebasestorage.googleapis.com/v0/b/phuketfood-a4623.appspot.com/o/img%2Ftom-tum-goong%20-%20%E7%8E%8B%E6%8C%AF%E4%B8%9A.jpg?alt=media&token=ee0507b3-80f4-411d-96ef-2aa274c2d55e'); */
+     background-repeat: no-repeat;
+
+     background-size: 100%;
+     width: 100%;
+     height: 300px;
+     background-position: center; 
+     position: relative;
+     display: inline-block;
+     margin-top: 30px;
+     margin-bottom: 20px;
+  }
+
+  .imgCard{
+    /* background-image: url('https://firebasestorage.googleapis.com/v0/b/phuketfood-a4623.appspot.com/o/img%2Fb140a0bc-6503-4e1c-8b37-f111a4977d77.jpg?alt=media&token=eb86956f-0c08-4bfd-8a67-36460da2609a'); */
+    background-repeat: no-repeat;
+    background-size: 100% ;
+    width: 100%;
+    height: 190px;
+    margin-top: 15px;
+    background-position: center; 
+    position: relative;
+    display: inline-block;
+  }
+
+
+  .meatModal{
+    background-image: url('img/chicken.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width:100%;
+    height: auto;
+    background-position: center; 
+    position: relative;
+    display: inline-block;
+    background-color: bisque;
+    margin-left: 1%;
+    border-radius: 5px 5px 5px 5px;
+  }
+
+  .rec{
+    background-image: url('img/recommended.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width:35px;
+    height:35px;
+    background-position: center; 
+    position: relative;
+    display: inline-block;
+    margin-left: 1%;
+    border-radius: 5px 5px 5px 5px;
+    z-index: 8;
+    position: absolute;
+  }
