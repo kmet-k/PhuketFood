@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/9a27a07ea6.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Charm&family=Chonburi&family=Kanit&family=Pattaya&family=Sarabun&family=Sriracha&family=Thasadith:wght@700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="menu.css">
+</head>
+
+<body>
+
+  <nav class="navbar fixed-top navbar navbar navbar-light bg-light">
+
+    <img src="https://icons.iconarchive.com/icons/icons8/windows-8/512/Editing-Text-icon.png" id="textIcon"
+      class="textIcon">
+    <button type="button" class="load btn" style="margin-left: auto;" data-toggle="modal" data-target="#modalDownload" onclick="preview()">
+      <!-- data-toggle="modal" data-target="#modalDownload" -->
+      <i class="fas fa-download"></i>
+    </button>
+
+    <button type="button" class="zoom-out btn" style="margin-left: auto;"> - </button>
+    <label class="zoom">100</label>
+    <button type="button" class="zoom-in btn"> + </button>
+  </nav>
+
+  <button type="button" id="toolIcon" class="tool btn">
+    <i class="far fa-file-image"></i>
+  </button>
+
+  <button type="button" id="bin" class="bin btn">
+    <i class="far fa-trash-alt"></i>
+  </button>
+
+  <div id="tool" class="toolBox">
+    <label class="fileContainer"> <i class="fas fa-upload"></i>
+      <input type="file" multiple id="addPhoto">
+    </label>
+    <div class="gallery" id="gallery"></div>
+
+    <button type="button" id="toolClose" class="toolClose btn"> <i class="fas fa-angle-left"></i> </button>
+  </div>
+
+  <button type="button" id="textTool" class="textEdit btn">
+    <i class="far fa-file-alt"></i>
+  </button>
+
+
+  <div id="tool" class="textToolBox">
+    <button type="button" id="bold" class="btn styleText align-items-center">
+      <i class="fas fa-bold" style="font-size:12px;" class="icon"></i>
+    </button>
+    <button type="button" id="underline" class="btn styleText">
+      <i class="fas fa-underline" style="font-size:12px;" class="icon"></i>
+    </button>
+    <button type="button" id="italic" class="btn styleText">
+      <i class="fas fa-italic" style="font-size:12px;" class="icon"></i>
+    </button><br>
+    <hr>
+    <input type="text" list="font" class="fontFamily" id="textFamily" />
+    <datalist id="font">
+      <option>Charm</option>
+      <option>Chonburi</option>
+      <option>Kanit</option>
+      <option>Pattaya</option>
+      <option>Sarabun</option>
+      <option>Sriracha</option>
+      <option>Thasadith</option>
+    </datalist>
+    <br>
+    <hr>
+
+    <button type="button" id="sortDown" class="btn "
+      style="width: 15px; text-align: center; padding-left: 0px; padding-right: 0px;">
+      <i class="fas fa-angle-down" style="font-size:12px; width: 5px; " class="icon"></i>
+    </button>
+    <input type="text" list="size" class="fontSize" id="textSize" />
+    <datalist id="size">
+      <option>8</option>
+      <option>12</option>
+      <option>24</option>
+      <option>36</option>
+    </datalist>
+    <button type="button" id="sortUp" class="btn "
+      style="width: 15px; text-align: center; padding-left: 0px; padding-right: 0px;">
+      <i class="fas fa-angle-up" style="font-size:12px; width: 5px; " class="icon"></i>
+    </button>
+    <br>
+    <hr>
+
+    <input name="Color Picker" type="color" class="color styleText" id="colorChoice" />
+    <br>
+    <hr>
+
+    <button type="button" id="left" class="btn styleText align-items-center">
+      <i class="fas fa-align-left" style="font-size:14px;" class="icon"></i>
+    </button>
+    <button type="button" id="mid" class="btn styleText">
+      <i class="fas fa-align-center" style="font-size:14px;" class="icon"></i>
+    </button>
+    <button type="button" id="right" class="btn styleText">
+      <i class="fas fa-align-right" style="font-size:14px;" class="icon"></i>
+    </button><br>
+    <hr>
+
+    <button type="button" id="textToolClose" class="textToolClose btn"> <i class="fas fa-angle-left"></i> </button>
+  </div>
+
+
+  <div class="page" style="height: auto;"></div>
+
+  <div id="previewImage">
+  </div>
+
+
+  <div class="modal show" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content" style="margin-top: 150px;">
+        <div class="modal-header">
+          <h4 class="modal-title">Page</h4>
+        </div>
+
+        <div class="modal-body">
+          <p>Size
+            <select class="size form-control form-control-sm">
+              <option value="A4">A4</option>
+              <option value="A5">A5</option>
+              <option value="A3">A3</option>
+            </select>
+          </p>
+
+          <p>Layout
+            <select class="rayout form-control form-control-sm">
+              <option value="vertical">Vertical</option>
+              <option value="landscape">Landscape</option>
+            </select>
+          </p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="ok btn btn-primary" data-dismiss="modal"> OK </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalDownload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Preview</h5>
+          <a id="loadBtn" href="#"><i class="fas fa-download" style="margin-left: 5px;"></i></a>
+            <!-- data-toggle="modal" data-target="#modalDownload" -->
+            
+          </button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="canvas" style="background-color: grey;" class="modalPreview">
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="menu.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+  <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
