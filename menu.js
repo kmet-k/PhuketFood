@@ -150,7 +150,7 @@ $(function() {
                 }
                 reader.readAsDataURL(input.files[i]);
             }
-     }
+        }
     };
 
     $('#addPhoto').on('change', function() {
@@ -183,28 +183,56 @@ function dropText() {
 
 
 
+// function preview() {
+//     $(".modalPreview").empty()
+    
+
+//     var element = $(".paper").css("transform","scale(1)")
+//         html2canvas(element, {
+//         onrendered: function (canvas) {
+//                $(".modalPreview").append(canvas);
+//                
+//             }
+//         });
+
+//         $(".paper").css("transform","scale(0.6)")
+
+//     //     console.log(window.getCanvas);
+        
+        
+//     $("#loadBtn").unbind("click").on('click', function () {
+//         var canvas = window.getCanvas;
+//         var imgageData = canvas.toDataURL("image/png");
+//         // Now browser starts downloading it instead of just showing it
+//         var newData = imgageData.replace(/^data:image\/.png/, "data:application/octet-stream");
+//         $("#loadBtn").attr("download", "picture.png").attr("href", newData);
+//     });
+        
+// } 
+
 function preview() {
     $(".modalPreview").empty()
+    $(".paper").css("transform","scale(1)")
     var element = $(".paper").css("transform","scale(1)")
 
         html2canvas(element, {
         onrendered: function (canvas) {
                $(".modalPreview").append(canvas);
-              
+               window.getCanvas = canvas; 
+               $(".paper").css("transform","scale(0.6)")
             }
         });
-        $(".paper").css("transform","scale(0.6)")
+        
 
-    //     console.log(window.getCanvas);
+    
         
         
     $("#loadBtn").unbind("click").on('click', function () {
-        $('textarea').css("text-align","justify")
-        window.getCanvas = canvas; (!options.letterRendering && /^(left|right|justify|auto|center)$/.test(textAlign) && noLetterSpacing(getCSS(el, "letterSpacing"))) ? textNode.nodeValue.split(/(\b| )/) : textNode.nodeValue.split("");
+        // $('textarea').css("text-align","justify")
+
         console.log(window.getCanvas);
         var canvas = window.getCanvas;
         var imgageData = canvas.toDataURL("image/jpeg");
-        // Now browser starts downloading it instead of just showing it
         var newData = imgageData.replace(/^data:image\/.jpeg/, "data:application/octet-stream");
         $("#loadBtn").attr("download", "picture.jpeg").attr("href", newData);
     });
