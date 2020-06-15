@@ -1,0 +1,263 @@
+<!doctype html>
+<html >
+
+<head>
+    <title>Result</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</script>
+<style>
+
+        * {margin: 0;
+        padding: 0;
+
+        }
+        #map {
+            height: 500px;
+            width: 50%;
+        }
+
+/* Make the image fully responsive */
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+</style>
+
+    <script src="script/result.js"></script>
+</head>
+
+<body class="bgcolor">
+
+   <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand"></a>
+
+
+        <div class="form-group ml-auto" style="width: 10px; margin-bottom: 3px; margin-left: 1720px;"></div>
+        <select class="" id="slick">
+            <option value="English" onclick='setlang("eng")'
+                data-imagesrc="https://sites1.christophlutz.co.uk/gbmag/wp-content/uploads/2017/01/UK-flag-union-jack-1024x683.jpg">
+            </option>
+            <option value="Chinese" onclick="setlang('cn')"
+                data-imagesrc="https://images-na.ssl-images-amazon.com/images/I/51VQMvWgzML._AC_SL1500_.jpg"></option>
+            <option value="Thai" onclick="setlang('en')"
+                data-imagesrc="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/1200px-Flag_of_Thailand.svg.png">
+            </option>
+        </select>
+        </div>
+    </nav>  
+
+<div class="container-fluid">
+    <div class="row">
+    <div class=" col-3 "style="width:100%;">
+        <div  style="width:100%; margin-top: 21%;margin-left:0px; margin-right:0;">
+            <div class="card text-light " style="width:400px; height:531px;background-color:rgb(128,0,128);">
+                <div style="margin-bottom: 5%; margin-top: 4%; font-size: 30px;">
+                    红烧猪腿
+                </div>
+                <div style="margin-bottom: 5%; font-size: 30px;">Stewed pork leg</div>
+                <div style="margin-bottom: 5%; font-size: 30px">ขาหมู</div>
+              </div>
+        </div>
+    </div>
+      <div class=" col-6" >
+        <div style="height:500px; width: 750px; margin-top: 10%; ">
+        <div id="demo" class="carousel slide"  >
+            <ul class="carousel-indicators">
+              <li data-target="#demo" data-slide-to="0" class="active"></li>
+              <li data-target="#demo" data-slide-to="1"></li>
+              <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+            <div class="carousel-inner" >
+              <div class="carousel-item active" style="margin-left:0px;">
+                <img  src="https://img-global.cpcdn.com/recipes/3c1d3259532bab69/751x532cq70/%E0%B8%A3%E0%B8%B9%E0%B8%9B-%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81-%E0%B8%82%E0%B8%AD%E0%B8%87-%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3-
+            %E0%B8%82%E0%B8%B2%E0%B8%AB%E0%B8%A1%E0%B8%B9%E0%B8%A1%E0%B8%AB%E0%B8%B6%E0%B8%A1%E0%B8%B2.jpg" alt="Card image" style="width:100%">
+              </div>
+              <div class="carousel-item">
+                <img  src="https://khaonews.com/wp-content/uploads/2018/02/%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3-%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B8%97%E0%B8%B3%E0%B8%82%E0%B8%B2%E0%B8%AB%E0%B8%A1%E0%B8%B9%E0%B8%9E%E0%B8%B0%E0%B9%82%E0%B8%A5%E0%B9%89-%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3%E0%B9%82%E0%B8%9A%E0%B8%A3%E0%B8%B2%E0%B8%93%E0%B8%97%E0%B8%B3%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%87%E0%B9%88%E0%B8%B2%E0%B8%A2-%E0%B8%97%E0%B8%B3%E0%B8%82%E0%B8%B2%E0%B8%A2%E0%B8%A3%E0%B8%A7%E0%B8%A2.jpg" alt="Card image" style="width:100%">
+              </div>
+              <div class="carousel-item">
+                <img  src="https://www.chiangmainews.co.th/wp-content/uploads/2017/01/b4-9.jpg" alt="Card image" style="width:100%">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+          </div>
+            
+      </div>
+      </div>
+
+      <div class=" col-3">
+        <div style=" margin-left: 1px;margin-right: 7.98%; width: 100%;height:520px; margin-top: 21%;">
+        <div  class="card" >
+            <div style= "height:274px; width: 100%; background-color:rgb(255,165,0);" id="map">
+              <Script>
+                function initMap() {
+                    var locate1 = {lat:7.8836764,lng:98.3879528}
+                    var locate0 = {lat:7.885787,lng:98.390745}
+                    var location = {lat:7.890030, lng: 98.398178 };
+                    var map = new google.maps.Map(document.getElementById("map"),{
+                        zoom:14,
+                        center : location
+                    });
+                    var marker = new google.maps.Marker({
+                      position: location,
+                      map: map
+                    });
+                    var marker = new google.maps.Marker({
+                      position: locate0,
+                      map: map
+                    });
+                    var marker = new google.maps.Marker({
+                      position: locate1,
+                      map: map
+                    });
+                }
+                
+            </Script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBhWuKcXhA0rPoxgPS_2-VFCFuRuKpa2w&callback=initMap"
+            type="text/javascript"></script>
+            </div>
+            
+            <div style= "height:260px; width: 100%; background-color:rgb(255,165,0);" >
+
+             
+            <div>
+               <ul class="carousel-indicators">
+                <li data-target="#res" data-slide-to="0" class="active"></li>
+                <li data-target="#res" data-slide-to="1"></li>
+                <li data-target="#res" data-slide-to="2"></li>
+              </ul>
+
+              <div id="res" class="carousel slide" data-ride="carousel">
+             
+                
+                  
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                <div class="card">
+                  <div class="card-body">เจ้รัต</div>
+                </div>
+
+                <div class="card">
+                  <div class="card-body">ขาหมูฮ้องเต้</div>
+                </div>
+
+                <div class="card">
+                  <div class="card-body">ต้นตำหรับยาจีน</div>
+                </div>
+
+                </div>
+
+                <div class="carousel-item ">
+                  <div class="card">
+                    <div class="card-body">ครัวหวานใจ</div>
+                  </div>
+  
+                  <div class="card">
+                    <div class="card-body">ขาหมูฮ้องเต้สาขา2</div>
+                  </div>
+  
+                  <div class="card">
+                    <div class="card-body">Yellow</div>
+                  </div>
+                  
+                  </div>
+            
+                  <div class="carousel-item ">
+                    <div class="card">
+                      <div class="card-body">หาล่า301</div>
+                    </div>
+    
+                    <div class="card">
+                      <div class="card-body">ขาหมูฮ้องเต้</div>
+                    </div>
+    
+                    <div class="card">
+                      <div class="card-body">ต้นตำหรับยาจีน</div>
+                    </div>
+                    
+                    </div>
+
+                </div>
+                </div>
+                
+            </div>
+              </div>
+            </div>
+            </div>
+
+   
+
+          </div>
+          </div>
+        </div> 
+      </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script>
+        $("#slick").ddslick({
+            width: "60px",
+            imagePosition: "left",
+            selectText: "Select your social network",
+            onSelected: function (data) {
+                $("#selected").html(data.selectedData.value);
+            }
+        })
+
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
