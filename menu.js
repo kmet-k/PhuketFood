@@ -22,10 +22,10 @@ $(document).ready(function() {
     });
 
     $('.ok').click(function() {
-        $('#bin').show()
-        $('#toolIcon').show()
-        $('#textTool').show()
-        
+        // $('#bin').show()
+        // $('#toolIcon').show()
+        // $('#textTool').show()
+        $('.template').show()
 
         var size = $('.size').val(); 
         var rayout = $('.rayout').val(); 
@@ -42,7 +42,14 @@ $(document).ready(function() {
                     dropText()
                 }
             });
-            
+
+            for (let index = 0; index < 8; index++) {
+                var item = `<div class="col-3 " id="template" style="margin-bottom: 40px;">
+                                <img src="Tp_Ver/V${index}.png" class="templateItem" >
+                            </div>`
+                            $('.template').append(item)
+            }
+
         }else{
             paper.forEach(element => {
                 if(size==element[0]){
@@ -121,6 +128,13 @@ $(document).ready(function() {
         }
     });
 
+    $( "body" ).delegate( ".templateItem", "click", function( event ) {
+        $('#bin').show()
+        $('#toolIcon').show()
+        $('#textTool').show()
+        $('.template').hide()
+    });
+    
     
 
     
