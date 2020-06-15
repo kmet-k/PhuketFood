@@ -14,7 +14,7 @@ $(document).ready(function() {
     $('#textTool').hide()
     $('.textToolBox').hide()
     // $('#previewImage').hide()
-    
+    $('.page').hide()
     
 
     $(window).on('load',function(){
@@ -133,6 +133,7 @@ $(document).ready(function() {
         $('#toolIcon').show()
         $('#textTool').show()
         $('.template').hide()
+        $('.page').show()
     });
     
     
