@@ -4,20 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet" />
     <title>Document</title>
     <style>
         #dvMap {
-            height: 750px;
+            height: 450px;
             width: 1500px;
+            margin-left:10px;
         }
     </style>
 </head>
 
 <body>
-    <form id="form1" runat="server">
-        <div id="dvMap">
+   
+    <div id="dvMap"></div>
+        <div class="card text-light " style="width:1510px; ">
+            <div id="result" style="margin-left:10px;">
+                <ul class="list-group">         
+                    <li class="list-group-item" id="in_kilo">Distanceis Kilo:</li>
+                    <li class="list-group-item" id="duration_text">INTEXT:</li>
+                    <li class="list-group-item" id="from">FROM:</li>
+                    <li class="list-group-item" id="to">TO:</li>
+                </ul>
+            </div>
         </div>
-    </form>
+        
+  
     <script>
         var markers = [
             {
@@ -39,12 +52,12 @@
 
         window.onload = function () {
 
-            var location = {lat:7.8948671, lng: 98.3531003 };
+            var location = { lat: 7.8948671, lng: 98.3531003 };
             var mapOptions = {
                 // center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
-                zoom: 15, 
-                center: location 
-            
+                zoom: 15,
+                center: location
+
             };
 
 
@@ -112,10 +125,58 @@
                     });
                 }
             }
+        
+
+        var origin = { lat: 7.8948671, lng: 98.3531003 }
+        var destination = { lat: 7.8836764, lng: 98.3879528 }
+        var service = new google.maps.DistanceMatrixService();
+        service.getDistanceMatrix(
+            {
+                origins: [origin],
+                destinations: [destination],
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.IMPERIAL, // miles and feet.
+                unitSystem: google.maps.UnitSystem.metric, // kilometers and meters.
+                avoidHighways: false,
+                avoidTolls: false
+            },
+            callback
+        );
+        // get distance results
+        function callback(response, status) {
+            if (status != google.maps.DistanceMatrixStatus.OK) {
+                $("#result").html(err);
+            } else {
+                var origin = response.originAddresses[0];
+                var destination = response.destinationAddresses[0];
+                if (response.rows[0].elements[0].status === "ZERO_RESULTS") {
+                    $("#result").html(
+                        "Better get on a plane. There are no roads between " +
+                        origin +
+                        " and " +
+                        destination
+                    );
+                } else {
+                    var distance = response.rows[0].elements[0].distance;
+                    var duration = response.rows[0].elements[0].duration;
+
+                    var distance_in_kilo = distance.value / 1000; // the kilom
+                    var distance_in_mile = distance.value / 1609.34; // the mile
+                    var duration_text = duration.text;
+                    var duration_value = duration.value;
+                    $("#in_mile").text(distance_in_mile.toFixed(2));
+                    $("#in_kilo").text('Distance : ' + distance_in_kilo.toFixed(2)+' Km');
+                    $("#duration_text").text('Time : '+duration_text );
+                    $("#duration_value").text(duration_value);
+                    $("#from").text('Origin : ' + origin);
+                    $("#to").text('destination : '+ destination);
+                }
+            }
         }
+         }
     </script>
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBhWuKcXhA0rPoxgPS_2-VFCFuRuKpa2w&callback=initMap"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBhWuKcXhA0rPoxgPS_2-VFCFuRuKpa2w"
         type="text/javascript"></script>
 </body>
 
