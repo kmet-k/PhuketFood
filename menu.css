@@ -18,7 +18,7 @@ body{
         transform-origin: top;
         text-align: justify;
         font-family: serif;
-    }
+}
 #canvas{
         overflow-y: scroll;
         

@@ -6,6 +6,18 @@ var getCanvas;
 numCountFile.countFile=1;
 numCountText.countText=1;
 
+var imgTemplate = []
+imgTemplate[0] ='https://www.thairath.co.th/media/dFQROr7oWzulq5FZUEw0KblrwGhr0kAwIWuwsU809ZTPNtdIXzKxLcMk67L77kat2Nc.webp'
+imgTemplate[1] ='https://i.pinimg.com/originals/d7/83/af/d783af669d6fb03a0f9f94891084739f.jpg'
+imgTemplate[2] ='https://www.smeleader.com/wp-content/uploads/2020/01/%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3%E0%B8%AB%E0%B8%A1%E0%B8%B9%E0%B8%81%E0%B8%A3%E0%B8%AD%E0%B8%9A-3.jpg'
+imgTemplate[3] ='https://f.ptcdn.info/296/035/000/1441812461-1441805850-o.jpg'
+
+var textTemplate = []
+textTemplate[0] =["ขาหมู","卤猪脚","Pork’ hocks in brown sauce"]
+textTemplate[1] =["ข้าวมันไก่","鸡油饭","Chicken rice"]
+textTemplate[2] =["หมูกรอบ","脆皮猪肉","Crispy pork"]
+textTemplate[3] =["ข้าวหมูแดง","叉烧饭","Red BBQ pork with rice"]
+
 $(document).ready(function() {
     
     $('#toolIcon').hide()
@@ -37,7 +49,7 @@ $(document).ready(function() {
                                 width: ${element[1]}px;
                                 height: ${element[2]}px;">
                                 </div>`;
-                    $('.page').append(item)
+                    // $('.page').append(item)
                     $('.page').css("height","0px")
                     dropText()
                 }
@@ -45,7 +57,8 @@ $(document).ready(function() {
 
             for (let index = 0; index < 8; index++) {
                 var item = `<div class="col-3 " id="template" style="margin-bottom: 40px;">
-                                <img src="Tp_Ver/V${index}.png" class="templateItem" >
+                                <img src="Tp_Ver/V${index}.png" class="templateItem" 
+                                onclick="selectTemplate(${index+1})">
                             </div>`
                             $('.template').append(item)
             }
@@ -135,16 +148,8 @@ $(document).ready(function() {
         $('.template').hide()
         $('.page').show()
     });
-    
-    
 
-    
-
-    
-    
 });
-
-
 
 $(function() {
     var imagesPreview = function(input, placeToInsertImagePreview) {
@@ -196,34 +201,89 @@ function dropText() {
     })
 }
 
+function selectTemplate(value) {
+    var size = $('.size').val(); 
+    if(value==1){
+        for (let index = 0; index < imgTemplate.length; index++) {
+          
+            paper.forEach(element => {
+                if(size==element[0]){
+                    var item =  `<div class="paper paper${index}" style=" 
+                                width: ${element[1]}px;
+                                height: ${element[2]}px;">
+                                </div>`;
+                    $('.page').append(item)
+                    $('.page').css("height","0px")
+                    dropText()
+                }
+            });
 
-
-// function preview() {
-//     $(".modalPreview").empty()
+           
+        }
+        
+        addImg(1)
+        addText(1)
+    }
     
-
-//     var element = $(".paper").css("transform","scale(1)")
-//         html2canvas(element, {
-//         onrendered: function (canvas) {
-//                $(".modalPreview").append(canvas);
-//                
-//             }
-//         });
-
-//         $(".paper").css("transform","scale(0.6)")
-
-//     //     console.log(window.getCanvas);
+}
+function addImg(value) {
+    console.log(value);
+    
+    if(value==1){
+        for (let index = 0; index < imgTemplate.length; index++) {
+            var item = `<div id="divimage${index+1}" class="imgBox" 
+            style="display:inline-block; text-align:center; margin-top: 18%">
+            <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 1200px;">
+            </div>`
+            $('.paper'+index).append(item)
+            drag('image'+(index+1))
+         
+        }
         
-        
-//     $("#loadBtn").unbind("click").on('click', function () {
-//         var canvas = window.getCanvas;
-//         var imgageData = canvas.toDataURL("image/png");
-//         // Now browser starts downloading it instead of just showing it
-//         var newData = imgageData.replace(/^data:image\/.png/, "data:application/octet-stream");
-//         $("#loadBtn").attr("download", "picture.png").attr("href", newData);
-//     });
-        
-// } 
+    }
+    
+}
+
+function addText(value) {
+    if (value==1) {
+        textTemplate.forEach((item, index)=>{ 
+            console.log(index);
+            var textarea = `<div class=""  id="divtext${item[0]}" style="position: relative; left: 500px; top: 79.3969px;"
+            >
+            <textarea  rows="4" cols="50" id="text${item[0]}" 
+            style="  font-size: 45px; text-align: center; margin: 0px; resize: none; position: static; zoom: 1; display: block; height: 141px; width: 235px;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(text${item[0]})">${item[0]}</textarea>
+            </div>`
+            $('.paper'+index).append(textarea)
+            drag('text'+item[0])
+   
+        })       
+    }
+}
+
+
+function drag(value) {
+    $('#'+value).draggable({
+        cancel: "text",
+        start: function (){
+            $('#textarea').focus();
+        },
+        stop: function (){
+            $('#textarea').focus();
+        } 
+    })
+
+    // reSize(value)
+    
+    
+}
+
+function reSize(value) {
+console.log(value);
+
+    $("#div"+value).resizable( {  });
+    
+}
 
 function preview() {
     $(".modalPreview").empty()
@@ -237,11 +297,7 @@ function preview() {
                $(".paper").css("transform","scale(0.6)")
             }
         });
-        
-
-    
-        
-        
+             
     $("#loadBtn").unbind("click").on('click', function () {
         // $('textarea').css("text-align","justify")
 
@@ -373,8 +429,6 @@ function forEdit(id){
             }
         })
 
-
-        
         $('#left').unbind("click").click(function(){
                 $(id).css("text-align","left");
         })
@@ -430,5 +484,4 @@ function forEdit(id){
             $('#textSize').val(size)
             $(id).css('font-size', size+'px');
         });
-
 }
