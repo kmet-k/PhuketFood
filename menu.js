@@ -231,12 +231,12 @@ function addImg(value) {
     
     if(value==1){
         for (let index = 0; index < imgTemplate.length; index++) {
-            var item = `<div id="divimage${index+1}" class="imgBox" 
-            style="display:inline-block; text-align:center; margin-top: 18%">
-            <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 1200px;">
+            var item = `<div id="divimage${index+1}" class="imgBox"
+            style="position: relative; display:inline-block; text-align:center; top: 150px; width:1243; ">
+            <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 98%;">
             </div>`
             $('.paper'+index).append(item)
-            drag('image'+(index+1))
+            dragPic('image'+(index+1))
          
         }
         
@@ -248,10 +248,9 @@ function addText(value) {
     if (value==1) {
         textTemplate.forEach((item, index)=>{ 
             console.log(index);
-            var textarea = `<div class=""  id="divtext${item[0]}" style="position: relative; left: 500px; top: 79.3969px;"
-            >
+            var textarea = `<div class=""  id="divtext${item[0]}" style="position: relative; left: 500px; top: 400.3969px;">
             <textarea  rows="4" cols="50" id="text${item[0]}" 
-            style="  font-size: 45px; text-align: center; margin: 0px; resize: none; position: static; zoom: 1; display: block; height: 141px; width: 235px;" class="textbox" 
+            style=" width: 235px; font-size: 45px; text-align: center; margin: 0px; resize: none;  height: 141px; " class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${item[0]})">${item[0]}</textarea>
             </div>`
             $('.paper'+index).append(textarea)
@@ -263,25 +262,30 @@ function addText(value) {
 
 
 function drag(value) {
-    $('#'+value).draggable({
-        cancel: "text",
+    $('#div'+value).draggable({
+        // cancel: "text",
         start: function (){
             $('#textarea').focus();
         },
         stop: function (){
             $('#textarea').focus();
         } 
+    })   
+    reSize(value) 
+}
+function dragPic(value) {
+    $('#'+value).draggable({
+        cursor: "move"
     })
 
-    // reSize(value)
-    
-    
+    $('#div'+value).resizable( { autoHide: true })
 }
+
 
 function reSize(value) {
 console.log(value);
 
-    $("#div"+value).resizable( {  });
+    $("#"+value).resizable( { autoHide: true });
     
 }
 
@@ -372,7 +376,7 @@ function drop(){
         distance: 0,
         cursorAt: [0,0],
         // appendTo: ".paper",
-        cursor: "move",
+        cursor: "move"
         // helper: 'clone',
         // revert: "invalid", 
     });
