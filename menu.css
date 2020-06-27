@@ -86,7 +86,7 @@ body{
         color: white;
         font-size: 20px;
         z-index: 5;
-        
+        background-image: url();
     }
     .imageGallery{
         width: 98%;
