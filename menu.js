@@ -628,7 +628,7 @@ function addText(value) {
             console.log(index);
             var textarea = `<div id="divtext${item[1]}" style="position: absolute; left: 40%; top: 60%;">
             <textarea  rows="4" cols="50" id="text${item[1]}" 
-            style=" width: 235px; font-size: 45px; text-align: center; margin: 0px; resize: none;  height: 141px; " class="textbox" 
+            style=" width: 235px; font-size: 45px; text-align: center; margin: 0px; resize: none;  height: 141px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${item[1]})">${item[1]}</textarea>
             </div>
             <div id="divtext${item[0]}" style="position: absolute; left: 40%; top: 65%;">
@@ -653,7 +653,7 @@ function addText(value) {
             var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 9%; top: 9%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 9%; top: 14%;">
@@ -674,7 +674,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 73%; top: 32%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 73%; top: 37%;">
@@ -694,7 +694,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 9%; top: 57%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 9%; top: 62%;">
@@ -714,7 +714,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 73%; top: 80%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 73%; top: 85%;">
@@ -742,7 +742,7 @@ function addText(value) {
             var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 73%; top: 9%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 73%; top: 14%;">
@@ -763,7 +763,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 9%; top: 32%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 9%; top: 37%;">
@@ -783,7 +783,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 73%; top: 57%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 73%; top: 62%;">
@@ -803,7 +803,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 9%; top: 80%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 9%; top: 85%;">
@@ -831,7 +831,7 @@ function addText(value) {
             var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; right: 5%; top: 9%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; right: 5%; top: 14%;">
@@ -852,7 +852,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; right: 5%; top: 32%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; right: 5%; top: 37%;">
@@ -872,7 +872,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; right: 5%; top: 57%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; right: 5%; top: 62%;">
@@ -892,7 +892,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; right: 5%; top: 80%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: right; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; right: 5%; top: 85%;">
@@ -920,7 +920,7 @@ function addText(value) {
             var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 5%; top: 9%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 5%; top: 14%;">
@@ -941,7 +941,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 5%; top: 32%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 5%; top: 37%;">
@@ -961,7 +961,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 5%; top: 57%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 5%; top: 62%;">
@@ -981,7 +981,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 5%; top: 80%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 5%; top: 85%;">
@@ -1009,7 +1009,7 @@ function addText(value) {
             var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 20%; top: 10%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 20%; top: 14%;">
@@ -1030,7 +1030,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 60%; top: 10%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 60%; top: 14%;">
@@ -1050,7 +1050,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 20%; top: 34%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 20%; top: 38%;">
@@ -1070,7 +1070,7 @@ function addText(value) {
                 var textarea = `
             <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 60%; top: 34%;">
             <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
-            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 60%; top: 38%;">
