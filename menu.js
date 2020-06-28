@@ -282,6 +282,50 @@ function selectTemplate(value) {
             addText(6)
         }
         
+    }else if(value==7||value==8){
+        var paperCount=0;
+        var divied = imgTemplate.length/5
+   
+        
+        for (let index = 0; index < divied; index++) {
+            console.log(index+1);
+                paper.forEach(element => {
+                    if(size==element[0]){
+                        var item =  `<div class="paper paper${paperCount}" style=" 
+                                    width: ${element[1]}px;
+                                    height: ${element[2]}px;">
+                                    </div>`;
+                        $('.page').append(item)
+                        $('.page').css("height","0px")
+                        dropText()
+                    }
+                });
+                paperCount=paperCount+1;
+        }
+
+        if(paperCount<divied){
+             paper.forEach(element => {
+                    if(size==element[0]){
+                        var item =  `<div class="paper paper${paperCount}" style=" 
+                                    width: ${element[1]}px;
+                                    height: ${element[2]}px;">
+                                    </div>`;
+                        $('.page').append(item)
+                        $('.page').css("height","0px")
+                        dropText()
+                    }
+                });
+                paperCount=paperCount+1
+
+        }
+        if(value == 7){
+            addImg(7)
+            addText(7)
+        }else if(value == 8){
+            addImg(8)
+            addText(8)
+        }
+        
     }    
 }
 
@@ -477,6 +521,96 @@ function addImg(value) {
             }else if((index+1)%4==0){
                 var item = `<div id="divimage${index+1}" class="imgBox"
                 style="position: absolute; display:inline-block; text-align:center; top: 80%; width:50%; right:0%;">
+                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 100%;">
+                </div>`
+                $('.paper'+papaerCount).append(item)
+                papaerCount=papaerCount+1
+                dragPic('image'+(index+1))
+                
+            }
+        }
+    }if(value==7){
+        var papaerCount = 0
+        for (let index = 0; index < imgTemplate.length; index++) {
+            
+            if((index+1)%5==1){
+                var item = `<div id="divimage${index+1}" class="imgBox"
+                style="position: absolute; display:inline-block; text-align:center; top: 58%; width:31%; right:2%;">
+                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 100%;">
+                </div>`
+                $('.paper'+papaerCount).append(item)
+                dragPic('image'+(index+1))
+            }else if((index+1)%5==2){
+                var item = `<div id="divimage${index+1}" class="imgBox"
+                style="position: absolute; display:inline-block; text-align:center; top: 72%; width:31%; right:2%;">
+                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 100%;">
+                </div>`
+                $('.paper'+papaerCount).append(item)
+                dragPic('image'+(index+1))
+            }else if((index+1)%5==3){
+                var item = `<div id="divimage${index+1}" class="imgBox"
+                style="position: absolute; display:inline-block; text-align:center; top: 86%; width:31%; left:2%;">
+                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 100%;">
+                </div>`
+                $('.paper'+papaerCount).append(item)
+                dragPic('image'+(index+1))
+
+            }else if((index+1)%5==4){
+                var item = `<div id="divimage${index+1}" class="imgBox"
+                style="position: absolute; display:inline-block; text-align:center; top: 86%; width:31%; left:34.5%;">
+                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 100%;">
+                </div>`
+                $('.paper'+papaerCount).append(item)
+                dragPic('image'+(index+1))
+                
+            }else if((index+1)%5==0){
+                var item = `<div id="divimage${index+1}" class="imgBox"
+                style="position: absolute; display:inline-block; text-align:center; top: 86%; width:31%; right:2%;">
+                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 100%;">
+                </div>`
+                $('.paper'+papaerCount).append(item)
+                papaerCount=papaerCount+1
+                dragPic('image'+(index+1))
+                
+            }
+        }
+    }if(value==8){
+        var papaerCount = 0
+        for (let index = 0; index < imgTemplate.length; index++) {
+            
+            if((index+1)%5==1){
+                var item = `<div id="divimage${index+1}" class="imgBox"
+                style="position: absolute; display:inline-block; text-align:center; top: 0%; width:100%; right:0%;">
+                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 100%;">
+                </div>`
+                $('.paper'+papaerCount).append(item)
+                dragPic('image'+(index+1))
+            }else if((index+1)%5==2){
+                var item = `<div id="divimage${index+1}" class="imgBox"
+                style="position: absolute; display:inline-block; text-align:center; top: 39.8%; width:38%; left:0%;">
+                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 100%;">
+                </div>`
+                $('.paper'+papaerCount).append(item)
+                dragPic('image'+(index+1))
+            }else if((index+1)%5==3){
+                var item = `<div id="divimage${index+1}" class="imgBox"
+                style="position: absolute; display:inline-block; text-align:center; top: 54.8%; width:38%; left:0%;">
+                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 100%;">
+                </div>`
+                $('.paper'+papaerCount).append(item)
+                dragPic('image'+(index+1))
+
+            }else if((index+1)%5==4){
+                var item = `<div id="divimage${index+1}" class="imgBox"
+                style="position: absolute; display:inline-block; text-align:center; top: 69.8%; width:38%; left:0%;">
+                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 100%;">
+                </div>`
+                $('.paper'+papaerCount).append(item)
+                dragPic('image'+(index+1))
+                
+            }else if((index+1)%5==0){
+                var item = `<div id="divimage${index+1}" class="imgBox"
+                style="position: absolute; display:inline-block; text-align:center; top: 85%; width:38%; left:0%;">
                 <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 100%;">
                 </div>`
                 $('.paper'+papaerCount).append(item)
@@ -957,6 +1091,222 @@ function addText(value) {
             drag('text'+textTemplate[index][1])
             drag('textEn'+textTemplate[index][1])
         }     
+    }else if(value==7){
+        var paperIndex=0;
+        for (let index = 0; index < textTemplate.length; index++) {
+            if((index+1)%5==1){
+            var textarea = `
+            <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 20%; top: 10%;">
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
+            </div>
+            <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 20%; top: 14%;">
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            </div>
+            <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 20%; top: 18%;">
+            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            </div>
+            `
+            $('.paper'+paperIndex).append(textarea)
+           
+          
+            }else if((index+1)%5==2){
+                var textarea = `
+            <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 20%; top: 34%;">
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
+            </div>
+            <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 20%; top: 38%;">
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            </div>
+            <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 20%; top: 42%;">
+            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            </div>
+            `
+            $('.paper'+paperIndex).append(textarea)
+            
+            }else if((index+1)%5==3){
+                var textarea = `
+            <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 20%; top: 56%;">
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
+            </div>
+            <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 20%; top: 60%;">
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            </div>
+            <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 20%; top: 64%;">
+            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            </div>
+            `
+            $('.paper'+paperIndex).append(textarea)
+            
+            }else if((index+1)%5==4){
+                var textarea = `
+            <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 60%; top: 10%;">
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
+            </div>
+            <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 60%; top: 14%;">
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            </div>
+            <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 60%; top:18%;">
+            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            </div>
+            `
+            $('.paper'+paperIndex).append(textarea)
+            }else if((index+1)%5==0){
+                var textarea = `
+            <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 60%; top: 34%;">
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
+            style=" width: 235px; font-size: 40px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
+            </div>
+            <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 60%; top: 38%;">
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            </div>
+            <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 60%; top:42%;">
+            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            </div>
+            `
+            $('.paper'+paperIndex).append(textarea)
+                paperIndex++
+            }
+            drag('text'+textTemplate[index][0])
+            drag('text'+textTemplate[index][1])
+            drag('textEn'+textTemplate[index][1])
+        }
+    }else if(value==8){
+            var paperIndex=0;
+            for (let index = 0; index < textTemplate.length; index++) {
+                if((index+1)%5==1){
+                var textarea = `
+                <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 55%; top: 43%;">
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
+                style=" width: 235px; font-size: 35px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
+                </div>
+                <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 55%; top: 46%;">
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+                style=" width: 235px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px; " class="textbox" 
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+                </div>
+                <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 55%; top: 49%;">
+                <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+                style=" width: 400px; font-size: 24px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+                </div>
+                `
+                $('.paper'+paperIndex).append(textarea)
+               
+              
+                }else if((index+1)%5==2){
+                    var textarea = `
+                <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 55%; top: 54%;">
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
+                style=" width: 235px; font-size: 35px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
+                </div>
+                <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 55%; top: 57%;">
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+                style=" width: 235px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+                </div>
+                <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 55%; top: 60%;">
+                <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+                style=" width: 400px; font-size: 24px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+                </div>
+                `
+                $('.paper'+paperIndex).append(textarea)
+                
+                }else if((index+1)%5==3){
+                    var textarea = `
+                <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 55%; top: 65%;">
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
+                style=" width: 235px; font-size: 35px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
+                </div>
+                <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 55%; top: 68%;">
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+                style=" width: 235px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+                </div>
+                <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 55%; top: 71%;">
+                <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+                style=" width: 400px; font-size: 24px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+                </div>
+                `
+                $('.paper'+paperIndex).append(textarea)
+                
+                }else if((index+1)%5==4){
+                    var textarea = `
+                <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 55%; top: 76%;">
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
+                style=" width: 235px; font-size: 35px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
+                </div>
+                <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 55%; top: 79%;">
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+                style=" width: 235px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+                </div>
+                <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 55%; top:82%;">
+                <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+                style=" width: 400px; font-size: 24px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+                </div>
+                `
+                $('.paper'+paperIndex).append(textarea)
+                }else if((index+1)%5==0){
+                    var textarea = `
+                <div id="divtext${textTemplate[index][1]}" style="position: absolute; left: 55%; top: 87%;">
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
+                style=" width: 235px; font-size: 35px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
+                </div>
+                <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 55%; top: 90%; ">
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+                style=" width: 235px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+                </div>
+                <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 55%; top:93%;">
+                <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+                style=" width: 400px; font-size: 24px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+                </div>
+                `
+                $('.paper'+paperIndex).append(textarea)
+                    paperIndex++
+                }
+                drag('text'+textTemplate[index][0])
+                drag('text'+textTemplate[index][1])
+                drag('textEn'+textTemplate[index][1])
+            }     
     }
 }
 
