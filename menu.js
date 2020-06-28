@@ -412,44 +412,6 @@ function addImg(value) {
                 
             }
         }
-    }
-    if(value==5){
-        var papaerCount = 0
-        for (let index = 0; index < imgTemplate.length; index++) {
-            
-            if((index+1)%4==1){
-                var item = `<div id="divimage${index+1}" class="imgBox"
-                style="position: absolute; display:inline-block; text-align:center; top: 6%; width:50%; right:5%;">
-                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 98%;">
-                </div>`
-                $('.paper'+papaerCount).append(item)
-                dragPic('image'+(index+1))
-            }else if((index+1)%4==2){
-                var item = `<div id="divimage${index+1}" class="imgBox"
-                style="position: absolute; display:inline-block; text-align:center; top: 30%; width:50%; right:5%;">
-                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 98%;">
-                </div>`
-                $('.paper'+papaerCount).append(item)
-                dragPic('image'+(index+1))
-            }else if((index+1)%4==3){
-                var item = `<div id="divimage${index+1}" class="imgBox"
-                style="position: absolute; display:inline-block; text-align:center; top: 53%; width:50%; right:5%;">
-                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 98%;">
-                </div>`
-                $('.paper'+papaerCount).append(item)
-                dragPic('image'+(index+1))
-
-            }else if((index+1)%4==0){
-                var item = `<div id="divimage${index+1}" class="imgBox"
-                style="position: absolute; display:inline-block; text-align:center; top: 77%; width:50%; right:5%;">
-                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 98%;">
-                </div>`
-                $('.paper'+papaerCount).append(item)
-                papaerCount=papaerCount+1
-                dragPic('image'+(index+1))
-                
-            }
-        }
     }if(value==5){
         var papaerCount = 0
         for (let index = 0; index < imgTemplate.length; index++) {
@@ -484,7 +446,6 @@ function addImg(value) {
                 $('.paper'+papaerCount).append(item)
                 papaerCount=papaerCount+1
                 dragPic('image'+(index+1))
-                
             }
         }
     }if(value==6){
@@ -1001,27 +962,26 @@ function addText(value) {
 
 
 function drag(value) {
-    $('#div'+value).draggable({
-        // // cancel: "text",
-        // start: function (){
-        //     $('#textarea').focus();
-        // },
-        // stop: function (){
-        //     $('#textarea').focus();
-        // } 
-    })   
-    reSize(value) 
-}
-
-function reSize(value) {
+    $('#div'+value).draggable( {distance: 0,
+        cursorAt: [0,0],
+        // appendTo: ".paper",
+        cursor: "move",
+        drag: function(){
+            console.log('drag');
+            $('#div'+value).css({ 'position':'relative','left' : '', 'top' : '','right' : '' });
+        }
+    }) 
 
     $("#"+value).resizable( { autoHide: true });
 }
 
+
 function dragPic(value) {
-    $('#div'+value).draggable(function() {
-        console.log('drag');
-        
+    $('#div'+value).draggable({
+        drag: function(){
+            console.log('drag');
+            $('#div'+value).css({ 'position':'','left' : '', 'top' : '','right' : '' });
+        }
     })
 
     $('#div'+value).resizable( { autoHide: true })
