@@ -47,7 +47,7 @@ $(document).ready(function() {
         var rayout = $('.rayout').val(); 
 
         if (rayout=="vertical") {
-            for (let index = 0; index < 8; index++) {
+            for (let index = 0; index < 9; index++) {
                 var item = `<div class="col-3 " id="template" style="margin-bottom: 40px;">
                                 <img src="Tp_Ver/V${index}.png" class="templateItem" 
                                 onclick="selectTemplate(${index+1})">
@@ -327,6 +327,20 @@ function selectTemplate(value) {
             addImg(8)
             addText(8)
         }
+        
+    }else if(value==9){
+        paper.forEach(element => {
+            if(size==element[0]){
+                var item =  `<div class="paper paper0" style=" 
+                            width: ${element[1]}px;
+                            height: ${element[2]}px;">
+                            </div>`;
+                $('.page').append(item)
+                $('.page').css("height","0px")
+                dropText()
+                numCountPaper()
+            }
+        });
         
     }
     display()
