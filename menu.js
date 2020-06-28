@@ -5,20 +5,21 @@ paper[2] = ["A5",874,1240]
 var getCanvas;
 numCountFile.countFile=1;
 numCountText.countText=1;
+numCountPaper.paperCount=0;
 
 var imgTemplate = []
 imgTemplate[0] ='https://www.thairath.co.th/media/dFQROr7oWzulq5FZUEw0KblrwGhr0kAwIWuwsU809ZTPNtdIXzKxLcMk67L77kat2Nc.webp'
 imgTemplate[1] ='https://i.pinimg.com/originals/d7/83/af/d783af669d6fb03a0f9f94891084739f.jpg'
 imgTemplate[2] ='https://www.smeleader.com/wp-content/uploads/2020/01/%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3%E0%B8%AB%E0%B8%A1%E0%B8%B9%E0%B8%81%E0%B8%A3%E0%B8%AD%E0%B8%9A-3.jpg'
 imgTemplate[3] ='https://f.ptcdn.info/296/035/000/1441812461-1441805850-o.jpg'
-imgTemplate[4] ='https://f.ptcdn.info/296/035/000/1441812461-1441805850-o.jpg'
+imgTemplate[4] ='https://i.ytimg.com/vi/KMW3By8jnuU/maxresdefault.jpg'
 
 var textTemplate = []
 textTemplate[0] =["ขาหมู","卤猪脚","Pork’ hocks in brown sauce"]
 textTemplate[1] =["ข้าวมันไก่","鸡油饭","Chicken rice"]
 textTemplate[2] =["หมูกรอบ","脆皮猪肉","Crispy pork"]
 textTemplate[3] =["ข้าวหมูแดง","叉烧饭","Red BBQ pork with rice"]
-textTemplate[4] =["ข้าวหมูแดง","叉烧饭","Red BBQ pork with rice"]
+textTemplate[4] =["เป็ดยาง","烤鸭","Roasted duck"]
 
 $(document).ready(function() {
     
@@ -30,6 +31,7 @@ $(document).ready(function() {
     // $('#previewImage').hide()
     $('.page').hide()
     
+    $('#nav').hide()
 
     $(window).on('load',function(){
         $('#myModal').modal('show');
@@ -45,18 +47,6 @@ $(document).ready(function() {
         var rayout = $('.rayout').val(); 
 
         if (rayout=="vertical") {
-            paper.forEach(element => {
-                if(size==element[0]){
-                    var item =  `<div class="paper" style=" 
-                                width: ${element[1]}px;
-                                height: ${element[2]}px;">
-                                </div>`;
-                    // $('.page').append(item)
-                    $('.page').css("height","0px")
-                    dropText()
-                }
-            });
-
             for (let index = 0; index < 8; index++) {
                 var item = `<div class="col-3 " id="template" style="margin-bottom: 40px;">
                                 <img src="Tp_Ver/V${index}.png" class="templateItem" 
@@ -64,7 +54,7 @@ $(document).ready(function() {
                             </div>`
                             $('.template').append(item)
             }
-
+            dropText()
         }else{
             paper.forEach(element => {
                 if(size==element[0]){
@@ -151,6 +141,7 @@ $(document).ready(function() {
         $('.page').show()
     });
 
+
 });
 
 $(function() {
@@ -204,6 +195,7 @@ function dropText() {
 }
 
 function selectTemplate(value) {
+    $('#nav').show()
     var size = $('.size').val(); 
     if(value==1){
         for (let index = 0; index < imgTemplate.length; index++) {
@@ -216,7 +208,9 @@ function selectTemplate(value) {
                                 </div>`;
                     $('.page').append(item)
                     $('.page').css("height","0px")
+                    numCountPaper()
                     dropText()
+                    
                 }
             });
 
@@ -244,6 +238,7 @@ function selectTemplate(value) {
                     }
                 });
                 paperCount=paperCount+1;
+                numCountPaper()
         }
 
         
@@ -263,12 +258,15 @@ function selectTemplate(value) {
                     }
                 });
                 paperCount=paperCount+1
+                numCountPaper()
 
         }
         if(value == 2){
+            console.log('paper'+(numCountPaper.paperCount));
             addImg(2)
             addText(2)
         }else if(value == 3){
+            
             addImg(3)
             addText(3)
         }else if(value == 4){
@@ -301,6 +299,7 @@ function selectTemplate(value) {
                     }
                 });
                 paperCount=paperCount+1;
+                numCountPaper()
         }
 
         if(paperCount<divied){
@@ -316,9 +315,12 @@ function selectTemplate(value) {
                     }
                 });
                 paperCount=paperCount+1
+                numCountPaper()
 
         }
         if(value == 7){
+            console.log('paper'+(numCountPaper.paperCount)+1);
+            
             addImg(7)
             addText(7)
         }else if(value == 8){
@@ -326,7 +328,62 @@ function selectTemplate(value) {
             addText(8)
         }
         
-    }    
+    }
+    display()
+}
+function display() {
+    var size = $('.size').val();
+    $('.paper').hide()
+    $('.paper0').show()
+    let  papaerCount = numCountPaper.paperCount
+    for (let index = 0; index < papaerCount; index++) {
+        var option = `<option value="${index}">${(index+1)}</option>`
+        $('#selectPaper').append(option)
+    }
+
+    $('.addpage').unbind("click").click(function(){
+        numCountPaper()
+        let  papaerCount = numCountPaper.paperCount
+        let paperMinusOne = papaerCount-1
+        var option = `<option value="${(paperMinusOne)}">${papaerCount}</option>`
+        $('#selectPaper').append(option)
+        $('.paper').hide()
+
+        paper.forEach(element => {
+            if(size==element[0]){
+                var item =  `<div class="paper paper${paperMinusOne}" style=" 
+                            width: ${element[1]}px;
+                            height: ${element[2]}px;">
+                            </div>`;
+                $('.page').append(item)
+                $('.page').css("height","0px")
+                dropText()
+            }
+        });
+        console.log(papaerCount);
+        
+        $('#selectPaper').val(paperMinusOne)
+        $('.paper'+paperMinusOne).show()
+    })
+
+
+
+    selectPaper()
+}
+
+function selectPaper() {
+    $( '#selectPaper').unbind("change").change(function(){
+        var numSelect = $( '#selectPaper').val()
+        var paper = numCountPaper.paperCount
+        for (let index = 0; index < paper; index++) {
+            
+            if(index==numSelect){
+                $('.paper'+index).show()
+            }else{
+                $('.paper'+index).hide()
+            }
+        }
+    });
 }
 
 function addImg(value) {
@@ -1333,12 +1390,8 @@ function dragPic(value) {
             $('#div'+value).css({ 'position':'','left' : '', 'top' : '','right' : '' });
         }
     })
-
     $('#div'+value).resizable( { autoHide: true })
 }
-
-
-
 
 function preview() {
     $(".modalPreview").empty()
@@ -1380,6 +1433,9 @@ function numCountFile() {
 
 function numCountText() {
     numCountText.countText++
+}
+function numCountPaper() {
+    numCountPaper.paperCount++
 }
 
 function create() {
@@ -1424,7 +1480,7 @@ function drop(){
     $('.dropped').draggable({
         distance: 0,
         cursorAt: [0,0],
-        // appendTo: ".paper",
+        appendTo: ".paper",
         cursor: "move"
         // helper: 'clone',
         // revert: "invalid", 

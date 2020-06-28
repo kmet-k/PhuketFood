@@ -23,21 +23,27 @@
 
 <body>
 
-  <nav class="navbar fixed-top navbar navbar navbar-light bg-light">
+  <nav class="navbar fixed-top navbar navbar navbar-light bg-light" id="nav">
+
+    <select  id="selectPaper" style="width: 3%; margin-left: 45%; ">
+      
+    </select>
+    <button type="button" class="addpage btn"> + </button>
 
     <img src="https://icons.iconarchive.com/icons/icons8/windows-8/512/Editing-Text-icon.png" id="textIcon"
-      class="textIcon">
-    <button type="button" class="load btn" style="margin-left: auto;" data-toggle="modal" data-target="#modalDownload"
+      class="textIcon" style="margin-left: 20%;">
+
+    <button type="button" class="load btn" style="margin-left: 10%;" data-toggle="modal" data-target="#modalDownload"
       onclick="preview()">
       <i class="fas fa-download"></i>
     </button>
 
-    <button type="button" class="zoom-out btn" style="margin-left: auto;"> - </button>
+    <button type="button" class="zoom-out btn" > - </button>
     <label class="zoom">100</label>
     <button type="button" class="zoom-in btn"> + </button>
   </nav>
 
-  <div class="template row">
+  <div class="template row ">
     <!-- <div class="col-3 " style="margin-bottom: 40px;">
       <img src="Tp_Ver/V0.png" class="templateItem">
     </div> -->
