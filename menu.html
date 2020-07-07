@@ -25,8 +25,8 @@
 
   <nav class="navbar fixed-top navbar navbar navbar-light bg-light" id="nav">
 
-    <select  id="selectPaper" style="width: 3%; margin-left: 45%; ">
-      
+    <select id="selectPaper" style="text-align: center; width: 2.4%; margin-left: 45%; ">
+
     </select>
     <button type="button" class="addpage btn"> + </button>
 
@@ -38,7 +38,7 @@
       <i class="fas fa-download"></i>
     </button>
 
-    <button type="button" class="zoom-out btn" > - </button>
+    <button type="button" class="zoom-out btn"> - </button>
     <label class="zoom">100</label>
     <button type="button" class="zoom-in btn"> + </button>
   </nav>
@@ -50,11 +50,19 @@
   </div>
 
   <button type="button" id="toolIcon" class="tool btn">
-    <i class="far fa-file-image"></i>
+    <i class="far fa-image"></i>
   </button>
 
   <button type="button" id="bin" class="bin btn">
     <i class="far fa-trash-alt"></i>
+  </button>
+
+  <button type="button" id="toolBg" class="toolBg btn">
+    <i class="far fa-file-image"></i>
+  </button>
+
+  <button type="button" id="toolPic" class="toolPic btn">
+    <i class="fas fa-star-half-alt"></i>
   </button>
 
   <div id="tool" class="toolBox">
@@ -131,11 +139,19 @@
     <button type="button" id="textToolClose" class="textToolClose btn"> <i class="fas fa-angle-left"></i> </button>
   </div>
 
+  <div id="bg" class="bgtoolBox">
+    <div class="bgFree" id="bgFree">
+    </div>
+    <button type="button" id="bgToolClose" class="toolClose btn"> <i class="fas fa-angle-left"></i> </button>
+  </div>
+
+  <div id="img" class="imgtoolBox">
+    <div class="imgFree" id="imgFree">
+    </div>
+    <button type="button" id="imgToolClose" class="toolClose btn"> <i class="fas fa-angle-left"></i> </button>
+  </div>
 
   <div class="page" style="height: auto;"></div>
-
-  <div id="previewImage">
-  </div>
 
 
   <div class="modal show" id="myModal" role="dialog">
@@ -193,7 +209,7 @@
       </div>
     </div>
   </div>
-  
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="menu.js"></script>

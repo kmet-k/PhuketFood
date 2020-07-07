@@ -18,6 +18,7 @@ body{
         transform-origin: top;
         text-align: justify;
         font-family: serif;
+        background-size: cover;
 }
 #canvas{
         overflow-y: scroll;
@@ -282,4 +283,98 @@ body{
     }
     .col-3{
         text-align: center;
+    }
+    .toolBg{
+        position: fixed;
+        top: 220px;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, .5);
+        border-radius: 0px 75px 75px 0px;
+        font-size: 18px;
+        z-index: 5;
+        color: rgb(49, 49, 49);
+    }
+    .toolBg:hover{
+          width: 60px;
+    }
+    .bgtoolBox{
+        position: fixed;
+        top: 200;
+        background-color: white;
+        width: 300px;
+        height: 700px;
+        box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, .5);
+        z-index: 5;
+    }
+    .bgFree{
+        margin-top: 2%;
+        width: 100%;
+        text-align: center;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 98%;
+    }
+    .imgBg{
+        width: 95%;
+        background-image: url();
+        margin-bottom: 1%;
+    }
+    #bgToolClose{
+        top:354px
+    }
+
+    .toolPic{
+        position: fixed;
+        top: 290px;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, .5);
+        border-radius: 0px 75px 75px 0px;
+        font-size: 15px;
+        z-index: 5;
+        color: rgb(49, 49, 49);
+    }
+    .toolPic:hover{
+          width: 60px;
+    }
+    .imgtoolBox{
+        position: fixed;
+        top: 200;
+        background-color: white;
+        width: 300px;
+        height: 500px;
+        box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, .5);
+        z-index: 5;
+    }
+    .imgFree{
+        margin-top: 2%;
+        width: 100%;
+        text-align: center;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 98%;
+    }
+    #imgToolClose{
+        top: 300px;
+    }
+    .pngDiv{
+        display:inline-block;
+        /* background-image:url('${event.target.result}'); */
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 40%;
+        height: auto;
+        margin: 5%;
+    }
+    .png{
+        width: 100%;
+    }
+    .newPNG{
+        display:inline-block;
+        position: absolute;
+        /* background-image:url('${event.target.result}'); */
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 20%;
+        height: auto;
+        z-index: 99;
     }

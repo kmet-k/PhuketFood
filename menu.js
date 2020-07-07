@@ -22,7 +22,8 @@ textTemplate[3] =["ข้าวหมูแดง","叉烧饭","Red BBQ pork wit
 textTemplate[4] =["เป็ดยาง","烤鸭","Roasted duck"]
 
 $(document).ready(function() {
-    
+    $('#bg').hide()
+    $('#toolBg').hide()
     $('#toolIcon').hide()
     $('#tool').hide()
     $('#bin').hide()
@@ -30,7 +31,8 @@ $(document).ready(function() {
     $('.textToolBox').hide()
     // $('#previewImage').hide()
     $('.page').hide()
-    
+    $('.imgtoolBox').hide()
+    $('#toolPic').hide()
     $('#nav').hide()
 
     $(window).on('load',function(){
@@ -109,6 +111,12 @@ $(document).ready(function() {
         $('#toolIcon').hide()
         $('#textTool').hide()
     })
+    $('#toolPic').click(function(){
+        
+        $('.imgtoolBox').show()
+        $('#toolIcon').hide()
+        $('#textTool').hide()
+    })
 
     $('#toolClose').click(function(){
         $('#tool').hide()
@@ -120,6 +128,24 @@ $(document).ready(function() {
         $('.textToolBox').hide()
         $('#toolIcon').show()
         $('#textTool').show()
+    })
+
+    $('#toolBg').click(function(){
+        $('#bg').show()
+        $('#toolIcon').hide()
+        $('#textTool').hide()
+    })
+
+    $('#bgToolClose').click(function(){
+        $('#bg').hide()
+        $('#toolIcon').show()
+        $('#textTool').show()
+        
+    })
+    $('#imgToolClose').click(function(){
+        $('#img').hide()
+        $('#toolIcon').show()
+        $('#textTool').show()````
     })
     
     $('#textIcon').draggable({
@@ -137,12 +163,36 @@ $(document).ready(function() {
         $('#bin').show()
         $('#toolIcon').show()
         $('#textTool').show()
+        $('#toolBg').show()
         $('.template').hide()
         $('.page').show()
+        $('#toolPic').show()
     });
 
+    for (let index = 1; index <= 6; index++) {
+        var item = `<img src='BG/BG${index}.jpg' class='imgBg' id='bg${index}' onclick='setBG(${index})'>`
+        $('#bgFree').append(item)
+    }
 
+    for (let index = 1; index <= 10; index++) {
+        var item = `<div id="pic${index}" class="imgBox pngDiv">
+        <img src='pic/pic${index}.png' class='png' style="display:inline-block" 
+        id='bg${index}' >
+        </div>`
+        $('#imgFree').append(item)
+        dragPNG()
+        dropPNG() 
+    }
+    
+    
 });
+function setBG(background) {
+    var paper = $('#selectPaper option:selected').val() 
+    var img = `BG/BG${background}.jpg`
+    console.log(img);
+    
+    $('.paper'+paper).css("background-image","url('"+img+"')")
+}
 
 $(function() {
     var imagesPreview = function(input, placeToInsertImagePreview) {
@@ -728,14 +778,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 9%; top: 14%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 9%; top: 19%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -749,14 +799,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 73%; top: 37%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 60%; top: 42%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -769,14 +819,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 9%; top: 62%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 9%; top: 67%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -789,14 +839,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 73%; top: 85%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 60%; top:90%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -817,14 +867,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 73%; top: 14%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 60%; top: 19%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -838,14 +888,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 9%; top: 37%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 9%; top: 42%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -858,14 +908,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 73%; top: 62%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 60%; top: 67%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -878,14 +928,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 9%; top: 85%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 9%; top:90%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -906,14 +956,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; right: 5%; top: 14%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; right: 5%; top: 19%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -927,14 +977,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; right: 5%; top: 37%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; right: 5%; top: 42%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -947,14 +997,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; right: 5%; top: 62%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; right: 5%; top: 67%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -967,14 +1017,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; right: 5%; top: 85%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; right: 5%; top:90%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: right; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -995,14 +1045,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 5%; top: 14%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 5%; top: 19%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -1016,14 +1066,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 5%; top: 37%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 5%; top: 42%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -1036,14 +1086,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 5%; top: 62%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 5%; top: 67%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -1056,14 +1106,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 5%; top: 85%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 5%; top:90%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -1084,14 +1134,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 20%; top: 14%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 20%; top: 18%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -1105,14 +1155,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 60%; top: 14%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 60%; top: 18%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -1125,14 +1175,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 20%; top: 38%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 20%; top: 42%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -1145,14 +1195,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 60%; top: 38%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 60%; top:42%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -1173,14 +1223,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 20%; top: 14%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 20%; top: 18%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -1194,14 +1244,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 20%; top: 38%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 20%; top: 42%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -1214,14 +1264,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 20%; top: 60%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 20%; top: 64%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -1234,14 +1284,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 60%; top: 14%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 60%; top:18%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -1253,14 +1303,14 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
             </div>
             <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 60%; top: 38%;">
-            <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 235px; font-size: 30px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
             </div>
             <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 60%; top:42%;">
-            <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+            <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
             style=" width: 400px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-            placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+            placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
             </div>
             `
             $('.paper'+paperIndex).append(textarea)
@@ -1281,14 +1331,14 @@ function addText(value) {
                 placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
                 </div>
                 <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 55%; top: 46%;">
-                <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
                 style=" width: 235px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px; " class="textbox" 
-                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
                 </div>
                 <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 55%; top: 49%;">
-                <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
                 style=" width: 400px; font-size: 24px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-                placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
                 </div>
                 `
                 $('.paper'+paperIndex).append(textarea)
@@ -1302,14 +1352,14 @@ function addText(value) {
                 placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
                 </div>
                 <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 55%; top: 57%;">
-                <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
                 style=" width: 235px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
                 </div>
                 <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 55%; top: 60%;">
-                <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
                 style=" width: 400px; font-size: 24px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-                placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
                 </div>
                 `
                 $('.paper'+paperIndex).append(textarea)
@@ -1322,14 +1372,14 @@ function addText(value) {
                 placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
                 </div>
                 <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 55%; top: 68%;">
-                <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
                 style=" width: 235px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
                 </div>
                 <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 55%; top: 71%;">
-                <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
                 style=" width: 400px; font-size: 24px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-                placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
                 </div>
                 `
                 $('.paper'+paperIndex).append(textarea)
@@ -1342,14 +1392,14 @@ function addText(value) {
                 placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
                 </div>
                 <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 55%; top: 79%;">
-                <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
                 style=" width: 235px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
                 </div>
                 <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 55%; top:82%;">
-                <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
                 style=" width: 400px; font-size: 24px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-                placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
                 </div>
                 `
                 $('.paper'+paperIndex).append(textarea)
@@ -1361,14 +1411,14 @@ function addText(value) {
                 placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][1]}</textarea>
                 </div>
                 <div id="divtext${textTemplate[index][0]}" style="position: absolute; left: 55%; top: 90%; ">
-                <textarea  rows="4" cols="50" id="text${textTemplate[index][0]}" 
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
                 style=" width: 235px; font-size: 28px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][0]})">${textTemplate[index][0]}</textarea>
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][0]}</textarea>
                 </div>
                 <div id="divtextEn${textTemplate[index][1]}" style="position: absolute; left: 55%; top:93%;">
-                <textarea  rows="4" cols="50" id="textEn${textTemplate[index][1]}" 
+                <textarea  rows="4" cols="50" id="text${textTemplate[index][1]}" 
                 style=" width: 400px; font-size: 24px; text-align: left; margin: 0px; resize: none;  height: 80px;" class="textbox" 
-                placeholder="type something ..." onClick="forEdit(textEn${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
+                placeholder="type something ..." onClick="forEdit(text${textTemplate[index][1]})">${textTemplate[index][2]}</textarea>
                 </div>
                 `
                 $('.paper'+paperIndex).append(textarea)
@@ -1408,24 +1458,35 @@ function dragPic(value) {
 }
 
 function preview() {
-    $(".modalPreview").empty()
-    $(".paper").css("transform","scale(1)")
-    var element = $(".paper").css("transform","scale(1)")
 
+    var numPaper = numCountPaper.paperCount
+    console.log(numPaper);
+    
+
+   
+    $(".modalPreview").empty()
+
+    for (let index = 0; index < numPaper; index++) {
+        $(".paper"+index).css("transform","scale(1)")
+        var element = $(".paper"+index).css("transform","scale(1)")
         html2canvas(element, {
         onrendered: function (canvas) {
                $(".modalPreview").append(canvas);
                window.getCanvas = canvas; 
-               $(".paper").css("transform","scale(0.6)")
+               $(".paper"+index).css("transform","scale(0.6)")
             }
         });
+        
+    }
+
+    
              
     $("#loadBtn").unbind("click").on('click', function () {
         console.log(window.getCanvas);
         var canvas = window.getCanvas;
         var imgageData = canvas.toDataURL("image/jpeg");
         var newData = imgageData.replace(/^data:image\/.jpeg/, "data:application/octet-stream");
-        $("#loadBtn").attr("download", "picture.jpeg").attr("href", newData);
+        $("#loadBtn").attr("download", "picture.jpg").attr("href", newData);
     });
         
 } 
@@ -1451,6 +1512,47 @@ function numCountText() {
 function numCountPaper() {
     numCountPaper.paperCount++
 }
+function dragPNG() {
+    $('.pngDiv').draggable({
+        cursorAt: { left: 5,top:5 },
+        cursor: "move",
+        helper: 'clone',
+        revert: "invalid",
+        stop: function(event,object) { 
+            
+            dropPNG()
+        }
+    })
+
+    
+    
+}
+function dropPNG() {
+    $(".paper").droppable({
+        
+        accept: ".pngDiv",
+        drop: function(event, ui) {  
+            console.log('dropPNG');
+            var item = $(ui.draggable).clone().removeClass().addClass("newPNG").addClass("resized");  
+              
+            $(this).append(item);
+            movePNG()
+        }
+    })
+    
+}
+function movePNG() {
+    $('.newPNG').draggable({
+        distance: 0,
+        cursorAt: [0,0],
+        appendTo: ".paper",
+        cursor: "move"
+        
+        
+    });
+
+    $('.resized').resizable( { autoHide: true });
+}
 
 function create() {
     id="#image"+numCountFile.count
@@ -1471,6 +1573,7 @@ function create() {
     $(".paper").droppable({
         // tolerance: "intersect",
         accept: ".imgBox",
+
         // activeClass: "ui-state-default",
         // hoverClass: "ui-state-hover",
         drop: function(event, ui) {  
