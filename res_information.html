@@ -13,9 +13,10 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+    <script  src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
+    <script  src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
+    <script  src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -30,8 +31,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+
 
   <style>
     * {
@@ -49,6 +49,9 @@
       cursor: pointer;
     }
 
+    .aa:hover {
+    color: blue;
+}
 
 
     /* Make the image fully responsive */
@@ -83,9 +86,10 @@
 
 
     <div class="form-group ml-auto" style="width: 10px; margin-bottom: 3px; margin-left: 1720px;"></div>
-    <button class="fa  btn" id="collectionlist" style="font-size: 30px; margin-left: 1000px"
-      aria-hidden="true"><i class="fa fa-print" aria-hidden="true"></i></button>
-    <select class="" id="slick">
+    <div id="selectcollec"></div>
+    <!-- <button class="fa  btn" onclick="collectionlist()" style="font-size: 30px; margin-left: 1000px"
+      aria-hidden="true"><i class="fa fa-print" aria-hidden="true"></i></button> -->
+    <!-- <select class="" id="slick">
       <option value="English" onclick='setlang("eng")'
         data-imagesrc="https://sites1.christophlutz.co.uk/gbmag/wp-content/uploads/2017/01/UK-flag-union-jack-1024x683.jpg">
       </option>
@@ -94,7 +98,7 @@
       <option value="Thai" onclick="setlang('en')"
         data-imagesrc="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/1200px-Flag_of_Thailand.svg.png">
       </option>
-    </select>
+    </select> -->
     </div>
   </nav>
   <div class="container-fluid">
@@ -111,7 +115,7 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
-            <div id="showName">
+            <div  id="showName">
               <!-- <p></p> -->
             </div>
           </div>
@@ -247,15 +251,15 @@
 
                     <div class="carousel-item ">
                       <div class="card">
-                        <div class="card-body pointer" onclick="tclick('ทอดมันทำเอง')">ทอดมันทำเอง</div>
+                        <div class="card-body pointer" onclick="tclick('ทอดมันทำเอง')">WanJun</div>
                       </div>
 
                       <div class="card">
-                        <div class="card-body pointer" onclick="tclick('แหลมหินซีฟู้ด')">แหลมหินซีฟู้ด</div>
+                        <div class="card-body pointer" onclick="tclick('แหลมหินซีฟู้ด')">Leam Hin Sea Food</div>
                       </div>
 
                       <div class="card">
-                        <div class="card-body pointer" onclick="tclick('ภูเก็ต-ระย้า')">ภูเก็ต-ระย้า</div>
+                        <div class="card-body pointer" onclick="tclick('ภูเก็ต-ระย้า')">Raya</div>
                       </div>
 
                     </div>
