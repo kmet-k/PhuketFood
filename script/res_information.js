@@ -1,14 +1,13 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyBca4gJadvrVWUy-q1RjE2LfMSjB8AVc4Y",
-    authDomain: "testdb-fc761.firebaseapp.com",
-    databaseURL: "https://testdb-fc761.firebaseio.com",
-    projectId: "testdb-fc761",
-    storageBucket: "testdb-fc761.appspot.com",
-    messagingSenderId: "505121024345",
-    appId: "1:505121024345:web:cd8aa4a23feb6eb031c448",
-    measurementId: "G-0GM7T5XXPM"
-
-};
+    apiKey: "AIzaSyDV6YCH-knnBtoCdvT1Z2wEkOU9y_NF_IU",
+    authDomain: "phuketfood-a4623.firebaseapp.com",
+    databaseURL: "https://phuketfood-a4623.firebaseio.com",
+    projectId: "phuketfood-a4623",
+    storageBucket: "phuketfood-a4623.appspot.com",
+    messagingSenderId: "590945091329",
+    appId: "1:590945091329:web:b0fdf7026b087cb8cc6500",
+    measurementId: "G-2MDJF4T26J"
+  };
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
@@ -200,7 +199,7 @@ $(document).ready(function () {
             getid = doc.id
             console.log(getid)
 
-            var nameCollec = `<div class="pointer" onclick="addMenu('${getid}')" ><p >${getCollec}</p></div>`
+            var nameCollec = `<div class="pointer" onclick="addMenu('${getid}')" ><p class="aa" align = 'left'>${getCollec}</p></div>`
             $("#showName").append(nameCollec);
             console.log(getCollec)
         });
@@ -240,8 +239,9 @@ $(document).ready(function () {
 
                     db.collection("collection").add({
                         collection_name: document.getElementById("createCollecton").value,
-                        id_nemu: [],
-                        id_collection: "c" + countSize.snapsize
+                        id_menu: [],
+                        id_collection: "c" + countSize.snapsize,
+                        id_user:"u_001"
 
                     })
 
@@ -287,6 +287,10 @@ var showImage = `<div class="carousel-inner">
 </div>`
 $("#imageS").append(showImage)
 
+var selectbtn =`<button class="fa  btn" onclick="collectionlist()" style="font-size: 30px; margin-left: 1000px"
+aria-hidden="true"><i class="fa fa-print" aria-hidden="true"></i></button>`
+
+$("#selectcollec").append(selectbtn);
 
 });
 
@@ -300,7 +304,7 @@ function addMenu(getCollec) {
     db.collection("collection").get().then(function (snapshot) {
 
         snapshot.forEach(function (doc) {
-            var checkID = doc.data().id_nemu
+            var checkID = doc.data().id_menu
 
 
 
@@ -308,8 +312,8 @@ function addMenu(getCollec) {
 
                 for (i = 0; i < checkID.length; i++) {
                     console.log("i" + i)
-                    console.log("ค่าarray " + doc.data().id_nemu[i])
-                    var dataa  = doc.data().id_nemu[i]
+                    console.log("ค่าarray " + doc.data().id_menu[i])
+                    var dataa  = doc.data().id_menu[i]
 
                     arrayTest.push(dataa)
 
@@ -317,12 +321,7 @@ function addMenu(getCollec) {
 
 
             }
-            // db.collection("collection").doc(getvalue).update({
-
-
-            //     id_nemu: ["array2"]
-
-            // });
+          
         });
 
        
@@ -366,8 +365,12 @@ if(check == false){
   
     db.collection("collection").doc(idCollec).set({
 
-        id_nemu: getarrayName
+        id_menu: getarrayName
 
     }, { merge: true });
 
+}
+
+function collectionlist(){
+    window.location.href = 'allCollection.html';
 }
