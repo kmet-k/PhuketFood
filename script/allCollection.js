@@ -17,10 +17,8 @@ var remove = firebase.firestore.FieldValue;
 var ele = 0;
 var arraySetdata = []
 $(document).ready(function () {
-  var showli = 0;
   var refdb = db.collection("collection")
   refdb.where("id_user", "==", "u_001").get().then((snapshot) => {
-
     snapshot.forEach(doc => {
       var collec = doc.data().collection_name;
       var collecid = doc.data().id_menu;
@@ -29,7 +27,7 @@ $(document).ready(function () {
       var data = doc.data()
 
       arraySetdata.push(data)
-
+      
       // console.log(arraySetdata);
       // id='UL${idmenu}' คือการอิงให้รู้ว่าจะเอาข้อความมาวางไว้ตรงช่องไหน
       var thisx = this;
@@ -110,16 +108,18 @@ function selectCollection(collecdata){
 if(collecdata==""){
   console.log("null");
 }else{
-  console.log(collecdata);
   localStorage.setItem("datacollec",collecdata);
+  window.location.href = 'menu.html';
 }
+
+
+// var getdataaa = localStorage.getItem("datacollec")
+// var idmenuu = JSON.parse(localStorage.getItem("idmenu"))
+// console.log(getdataaa);
+// console.log(idmenuu);
+
+
 }
-
-var getdataaa = localStorage.getItem("datacollec")
-console.log(getdataaa);
-
-
-
 
 
 

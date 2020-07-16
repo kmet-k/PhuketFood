@@ -292,6 +292,7 @@ function searchNow(){
         localStorage.setItem("type", JSON.stringify(typeName));
         localStorage.setItem("meat", JSON.stringify(meatName));
         localStorage.setItem("text", text);
+        console.log(menu);
         $("#search").val('');
         window.location.href = 'new.html';
 
@@ -301,8 +302,10 @@ function searchNow(){
         localStorage.setItem("type", JSON.stringify(typeName));
         localStorage.setItem("meat", JSON.stringify(meatName));
         localStorage.setItem("text", text);
+        console.log(menu);
         $("#search").val('');
         window.location.href = 'new.html';
+       
         
     }
 }
