@@ -769,7 +769,7 @@ function addImg(value) {
             }else if((index+1)%5==3){
                 var item = `<div id="divimage${index+1}" class="imgBox"
                 style="position: absolute; display:inline-block; text-align:center; top: 54.8%; width:38%; left:0%;">
-                <img id="image${index+1}" src="${imgTemplate[index]}" style="width: 100%;">
+                <img id="image${index+1}" src="${picMenu[index]}" style="width: 100%;">
                 </div>`
                 $('.paper'+papaerCount).append(item)
                 dragPic('image'+(index+1))
@@ -932,6 +932,7 @@ function addText(value) {
             placeholder="type something ..." onClick="forEdit(text${nameMenu[index][0]})">${nameMenu[index][1]}</textarea>
             </div>
             `
+
             $('.paper'+paperIndex).append(textarea)
            
           
@@ -1386,8 +1387,24 @@ function addText(value) {
                 placeholder="type something ..." onClick="forEdit(text${nameMenu[index][0]})">${nameMenu[index][1]}</textarea>
                 </div>
                 `
+
+                var number = `<div id="numberA" style="position: absolute; left: 50%; top: 45%;">
+                <textarea  rows="4" cols="50" id="textA" 
+                style="color:red; width: 60px; font-size: 50px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textA)">A</textarea>
+                </div>
+                `
+
+                var number2 = `<div id="numberAonPic" style="position: absolute; left: 2%; top: 1%;">
+                <textarea  rows="4" cols="50" id="textAonPic" 
+                style="color:white; width: 70px; font-size: 80px; text-align: left; margin: 0px; resize: none;  height: 150px; font-weight: bold;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textAonPic)">A</textarea>
+                </div>
+                `
+                $('.paper'+paperIndex).append(number)
+                $('.paper'+paperIndex).append(number2)
                 $('.paper'+paperIndex).append(textarea)
-               
+                dragNumber('A')
               
                 }else if((index+1)%5==2){
                     var textarea = `
@@ -1407,9 +1424,24 @@ function addText(value) {
                 placeholder="type something ..." onClick="forEdit(text${nameMenu[index][0]})">${nameMenu[index][1]}</textarea>
                 </div>
                 `
+
+                var number = `<div id="numberB" style="position: absolute; left: 50%; top: 56%;">
+                <textarea  rows="4" cols="50" id="textB" 
+                style="color:red; width: 60px; font-size: 50px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textB)">B</textarea>
+                </div>
+                `
+
+                var number2 = `<div id="numberBonPic" style="position: absolute; left: 2%; top: 39.5%;">
+                <textarea  rows="4" cols="50" id="textBonPic" 
+                style="color:white; width: 70px; font-size: 80px; text-align: left; margin: 0px; resize: none;  height: 150px; font-weight: bold;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textBonPic)">B</textarea>
+                </div>
+                `
+                $('.paper'+paperIndex).append(number)
+                $('.paper'+paperIndex).append(number2)
                 $('.paper'+paperIndex).append(textarea)
-                console.log(nameMenu[index][0]);
-                
+                dragNumber('B')
                 }else if((index+1)%5==3){
                     var textarea = `
                 <div id="Cn_divtext${nameMenu[index][0]}" style="position: absolute; left: 55%; top: 65%;">
@@ -1428,7 +1460,24 @@ function addText(value) {
                 placeholder="type something ..." onClick="forEdit(text${nameMenu[index][0]})">${nameMenu[index][1]}</textarea>
                 </div>
                 `
+
+                var number = `<div id="numberC" style="position: absolute; left: 50%; top: 67%;">
+                <textarea  rows="4" cols="50" id="textC" 
+                style="color:red; width: 60px; font-size: 50px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textC)">C</textarea>
+                </div>
+                `
+
+                var number2 = `<div id="numberConPic" style="position: absolute; left: 2%; top: 54%;">
+                <textarea  rows="4" cols="50" id="textConPic" 
+                style="color:white; width: 70px; font-size: 80px; text-align: left; margin: 0px; resize: none;  height: 150px; font-weight: bold;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textConPic)">C</textarea>
+                </div>
+                `
+                $('.paper'+paperIndex).append(number)
+                $('.paper'+paperIndex).append(number2)
                 $('.paper'+paperIndex).append(textarea)
+                dragNumber('C')
                 
                 }else if((index+1)%5==4){
                     var textarea = `
@@ -1448,7 +1497,24 @@ function addText(value) {
                 placeholder="type something ..." onClick="forEdit(text${nameMenu[index][0]})">${nameMenu[index][1]}</textarea>
                 </div>
                 `
+
+                var number = `<div id="numberD" style="position: absolute; left: 50%; top: 78%;">
+                <textarea  rows="4" cols="50" id="textB" 
+                style="color:red; width: 60px; font-size: 50px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textB)">D</textarea>
+                </div>
+                `
+
+                var number2 = `<div id="numberDonPic" style="position: absolute; left: 2%; top: 69%;">
+                <textarea  rows="4" cols="50" id="textDonPic" 
+                style="color:white; width: 70px; font-size: 80px; text-align: left; margin: 0px; resize: none;  height: 150px; font-weight: bold;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textDonPic)">D</textarea>
+                </div>
+                `
+                $('.paper'+paperIndex).append(number)
+                $('.paper'+paperIndex).append(number2)
                 $('.paper'+paperIndex).append(textarea)
+                dragNumber('D')
                 }else if((index+1)%5==0){
                     var textarea = `
                 <div id="Cn_divtext${nameMenu[index][0]}" style="position: absolute; left: 55%; top: 87%;">
@@ -1467,45 +1533,86 @@ function addText(value) {
                 placeholder="type something ..." onClick="forEdit(text${nameMenu[index][0]})">${nameMenu[index][1]}</textarea>
                 </div>
                 `
+                var number = `<div id="numberE" style="position: absolute; left: 50%; top: 89%;">
+                <textarea  rows="4" cols="50" id="textE" 
+                style="color:red; width: 60px; font-size: 50px; text-align: left; margin: 0px; resize: none;  height: 80px; font-weight: bold;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textB)">E</textarea>
+                </div>
+                `
+
+                var number2 = `<div id="numberEonPic" style="position: absolute; left: 2%; top: 84%;">
+                <textarea  rows="4" cols="50" id="textEonPic" 
+                style="color:white; width: 70px; font-size: 80px; text-align: left; margin: 0px; resize: none;  height: 150px; font-weight: bold;" class="textbox" 
+                placeholder="type something ..." onClick="forEdit(textEonPic)">E</textarea>
+                </div>
+                `
+                $('.paper'+paperIndex).append(number)
+                $('.paper'+paperIndex).append(number2)
                 $('.paper'+paperIndex).append(textarea)
+                dragNumber('E')
                     paperIndex++
                 }
                 drag('text'+nameMenu[index][0])
+                
             }     
     }
 }
 
 
 function drag(value) {
-    // $('#Cn_div'+value).draggable( {distance: 0,
-    //     cursorAt: [0,0],
-    //     // appendTo: ".paper",
-    //     cursor: "move",
-    //     drag: function(){
-    //         console.log('drag');
-    //         $('#div'+value).css({ 'position':'relative','left' : '', 'top' : '','right' : '' });
-    //     }
-    // }) 
-    // $('#Th_div'+value).draggable( {distance: 0,
-    //     cursorAt: [0,0],
-    //     // appendTo: ".paper",
-    //     cursor: "move",
-    //     drag: function(){
-    //         console.log('drag');
-    //         $('#div'+value).css({ 'position':'relative','left' : '', 'top' : '','right' : '' });
-    //     }
-    // }) 
-    // $('#En_div'+value).draggable( {distance: 0,
-    //     cursorAt: [0,0],
-    //     // appendTo: ".paper",
-    //     cursor: "move",
-    //     drag: function(){
-    //         console.log('drag');
-    //         $('#div'+value).css({ 'position':'relative','left' : '', 'top' : '','right' : '' });
-    //     }
-    // }) 
+    $('#Cn_div'+value).draggable( {distance: 0,
+        cursorAt: [0,0],
+        // appendTo: ".paper",
+        cursor: "move",
+        drag: function(){
+            console.log('drag');
+            $('#div'+value).css({ 'position':'relative','left' : '', 'top' : '','right' : '' });
+        }
+    }) 
+    $('#Th_div'+value).draggable( {distance: 0,
+        cursorAt: [0,0],
+        // appendTo: ".paper",
+        cursor: "move",
+        drag: function(){
+            console.log('drag');
+            $('#div'+value).css({ 'position':'relative','left' : '', 'top' : '','right' : '' });
+        }
+    }) 
+    $('#En_div'+value).draggable( {distance: 0,
+        cursorAt: [0,0],
+        // appendTo: ".paper",
+        cursor: "move",
+        drag: function(){
+            console.log('drag');
+            $('#div'+value).css({ 'position':'relative','left' : '', 'top' : '','right' : '' });
+        }
+    }) 
 
     $("#"+value).resizable( { autoHide: true });
+}
+
+function dragNumber(value){
+    $('#number'+value).draggable( {distance: 0,
+        cursorAt: [0,0],
+        // appendTo: ".paper",
+        cursor: "move",
+        drag: function(){
+            console.log('drag');
+            $('#div'+value).css({ 'position':'relative','left' : '', 'top' : '','right' : '' });
+        }
+    }) 
+    $('#number'+value+'onPic').draggable( {distance: 0,
+        cursorAt: [0,0],
+        // appendTo: ".paper",
+        cursor: "move",
+        drag: function(){
+            console.log('drag');
+            $('#div'+value).css({ 'position':'relative','left' : '', 'top' : '','right' : '' });
+        }
+    }) 
+
+    $("#text"+value).resizable( { autoHide: true });
+    $("#text"+value+"onPic").resizable( { autoHide: true });
 }
 
 
