@@ -8,27 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="res_information.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script  src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
-    <script  src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
-    <script  src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script src="script/res_information.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
 
@@ -50,8 +43,8 @@
     }
 
     .aa:hover {
-    color: blue;
-}
+      color: blue;
+    }
 
 
     /* Make the image fully responsive */
@@ -60,18 +53,24 @@
       height: 100%;
     }
 
-     .CCpop{
-  position: absolute;
-  left: 100px;
-  top: 140px;
-  z-index: 8;
-} 
+    .CCpop {
+      position: absolute;
+      left: 3%;
+
+      top: 17%;
+      z-index: 8;
+    }
+
+    .pullleft {
+      float: left
+    }
   </style>
 
-  <script src="script/result.js"></script>
+
 </head>
 
 <body class="bgcolor">
+
 
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
@@ -81,15 +80,107 @@
   <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
 
 
-  <nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand"></a>
+
+  <div class="register" id="loginuserres">
+    <button class="buttonloginregis button1" data-toggle="modal" data-target="#myModal">
+      Login
+    </button>
+    <button class="buttonloginregis button2" data-toggle="modal" data-target="#myreModal">
+      Register
+    </button>
+  </div>
 
 
-    <div class="form-group ml-auto" style="width: 10px; margin-bottom: 3px; margin-left: 1720px;"></div>
-    <div id="selectcollec"></div>
-    <!-- <button class="fa  btn" onclick="collectionlist()" style="font-size: 30px; margin-left: 1000px"
-      aria-hidden="true"><i class="fa fa-print" aria-hidden="true"></i></button> -->
-    <!-- <select class="" id="slick">
+  <div id="logoutuserres">
+    <button type="button" class="btn btn-dark register" onclick="logout()">
+      Logout
+    </button>
+    <button class="fa  btn allbtnposition" onclick="collectionlist()" style="font-size: 30px; margin-left: 1000px"
+      aria-hidden="true"><i class="fa fa-print" aria-hidden="true"></i></button>
+  </div>
+
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <form action="/action_page.php">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="email" name="email">
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input type="password" class="form-control" id="pwd" placeholder="password" name="pswd">
+            </div>
+            <div class="form-group form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+              </label>
+            </div>
+            <div class="modal-footer">
+              <div class="resbtnposition">
+                <button type="button" class="buttonloginregis regisbtn" data-toggle="modal" data-target="#myreModal">
+                  Register
+                </button>
+              </div>
+              <div class="loginposition">
+                <button type="button" class="buttonloginregis closebtn" data-dismiss="modal">Close</button>
+                <button type="submit" class="buttonloginregis loginbtn" data-dismiss="modal"
+                  onclick="login()">Login</button>
+
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="myreModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <form action="/action_page.php">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="regisemail" placeholder="email" name="reemail">
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input type="password" class="form-control" id="regispwd" placeholder="password" name="repswd">
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="buttonloginregis closebtn" data-dismiss="modal">Close</button>
+              <button type="submit" class="buttonloginregis submitbtn" data-dismiss="modal"
+                onclick="register()">submit</button>
+
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+
+
+      </div>
+    </div>
+  </div>
+  <div class="form-group ml-auto" style="width: 10px; margin-bottom: 3px; margin-left: 1720px;"></div>
+  <!-- <div id="selectcollec"></div> -->
+
+  <!-- <select class="" id="slick">
       <option value="English" onclick='setlang("eng")'
         data-imagesrc="https://sites1.christophlutz.co.uk/gbmag/wp-content/uploads/2017/01/UK-flag-union-jack-1024x683.jpg">
       </option>
@@ -99,30 +190,35 @@
         data-imagesrc="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/1200px-Flag_of_Thailand.svg.png">
       </option>
     </select> -->
-    </div>
-  </nav>
+
   <div class="container-fluid">
-    <button class="fa fa-plus-circle btn CCpop" id="Cpop" style="font-size: 30px; margin-left: 1000px;"
+
+    <button class="fa fa-plus-circle btn CCpop" id="Cpop" style="font-size: 30px; margin-left: 66%;"
       aria-hidden="true"></button>
     <!-- Modal 1 -->
     <div class="modal fade" id="popup" role="dialog">
       <div class="modal-dialog">
-
         <!-- Modal content  -->
         <div class="modal-content">
           <div class="modal-header">
-            <i class="fa fa-plus-circle btn" id="createCall" aria-hidden="true"> Create New Callection</i>
+            <strong>Callection</strong> 
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
+
           <div class="modal-body">
-            <div  id="showName">
-              <!-- <p></p> -->
+            <div id="showName">
             </div>
           </div>
+
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <div class="pullleft">
+              <button class="fa fa-plus-circle btn pointer aa" id="createCall"> Create New
+                Callection</button>
+              <button type="button" class="buttonloginregis closebtn" data-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -140,8 +236,8 @@
             <input type="text" class="form-control" id="createCollecton" name="name" placeholder="New Collection Name">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="submit">Create</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="closeColl">Cancel</button>
+            <button type="button" class="buttonloginregis creatsubmitbtn" data-dismiss="modal" id="submit">Create</button>
+            <button type="button" class="buttonloginregis closebtn" data-dismiss="modal" id="closeColl">Cancel</button>
           </div>
         </div>
 
@@ -151,7 +247,7 @@
 
     <div class="row">
 
-      <div id="Name_menu" class=" col-3 " style="width:100%;" >
+      <div id="Name_menu" class=" col-3 " style="width:100%;">
         <!-- <div style="width:100%; margin-top: 21%;margin-left:0px; margin-right:0;">
           <div class="card text-light " style="width:400px; height:531px;background-color:rgb(128,0,128);">
             <div style="margin-bottom: 5%; margin-top: 4%; font-size: 30px;">
@@ -171,8 +267,8 @@
               <li data-target="#demo" data-slide-to="1"></li>
               <li data-target="#demo" data-slide-to="2"></li>
               </ul> -->
-            
-              <!-- <div class="carousel-item">
+
+            <!-- <div class="carousel-item">
                 <img
                   src="https://khaonews.com/wp-content/uploads/2018/02/%E0%B8%AD%E0%B8%B2%E0%B8%AB%E0%B8%B2%E0%B8%A3-%E0%B8%A7%E0%B8%B4%E0%B8%98%E0%B8%B5%E0%B8%97%E0%B8%B3%E0%B8%82%E0%B8%B2%E0%B8%AB%E0%B8%A1%E0%B8%B9%E0%B8%9E%E0%B8%B0%E0%B9%82%E0%B8%A5%E0%B9%89-%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3%E0%B9%82%E0%B8%9A%E0%B8%A3%E0%B8%B2%E0%B8%93%E0%B8%97%E0%B8%B3%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%87%E0%B9%88%E0%B8%B2%E0%B8%A2-%E0%B8%97%E0%B8%B3%E0%B8%82%E0%B8%B2%E0%B8%A2%E0%B8%A3%E0%B8%A7%E0%B8%A2.jpg"
                   alt="Card image" style="width:100%">
@@ -195,7 +291,7 @@
 
       <div class=" col-3">
         <div style=" margin-left: 1px;margin-right: 7.98%; width: 100%;height:520px; margin-top: 21%;">
-          <div class="card">
+          <div class="card" data-spy="scroll">
             <div style="height:274px; width: 100%; background-color:rgb(255,165,0);" id="map">
 
               <script async defer
@@ -203,38 +299,29 @@
                 type="text/javascript"></script>
             </div>
 
-            <div style="height:260px; width: 100%; background-color:rgb(255,165,0);">
+            <div class="overflow-auto" style="height:260px; width: 100%; background-color:rgb(255,165,0);">
 
 
-              <div>
-                <ul class="carousel-indicators">
-                  <li data-target="#res" data-slide-to="0" class="active"></li>
-                  <li data-target="#res" data-slide-to="1"></li>
-                  <li data-target="#res" data-slide-to="2"></li>
-                </ul>
+              <div >
+                    <div class="carouselres"></div>
+                    <!-- <div class="carousel-item active">
+                      <div class="res">
+                        <div class="card">
+                          <div class="card-body pointer" id="tclick" onclick="tclick('เจ้รัต')"> เจ้รัต</div>
 
-                <div id="res" class="carousel slide" data-ride="carousel">
+                        </div>
 
+                        <div class="card">
+                          <div class="card-body pointer" id="tclick" onclick="tclick('ขาหมู')">ขาหมู</div>
+                        </div>
 
+                        <div class="card">
+                          <div class="card-body pointer" onclick="tclick('บุญมาปอเปี๊ยะทอด')">บุญมาปอเปี๊ยะทอด </div>
+                        </div>
 
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <div class="card">
-                        <div class="card-body pointer" id="tclick" onclick="tclick('เจ้รัต')"> เจ้รัต</div>
+                      </div> -->
 
-                      </div>
-
-                      <div class="card">
-                        <div class="card-body pointer" id="tclick" onclick="tclick('ขาหมู')">ขาหมู</div>
-                      </div>
-
-                      <div class="card">
-                        <div class="card-body pointer" onclick="tclick('บุญมาปอเปี๊ยะทอด')">บุญมาปอเปี๊ยะทอด </div>
-                      </div>
-
-                    </div>
-
-                    <div class="carousel-item ">
+                      <!-- <div class="carousel-item ">
                       <div class="card">
                         <div class="card-body pointer" onclick="tclick('ครัวยายด้วง')">ครัวยายด้วง </div>
                       </div>
@@ -262,21 +349,21 @@
                         <div class="card-body pointer" onclick="tclick('ภูเก็ต-ระย้า')">Raya</div>
                       </div>
 
-                    </div>
+                    </div> -->
 
-                  </div>
-                </div>
+                    
+                
 
+                
               </div>
             </div>
           </div>
+
+
+
         </div>
-
-
-
       </div>
     </div>
-  </div>
   </div>
 
   </div>
@@ -318,6 +405,13 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+
+
+
+
+
+
+
 
 </body>
 

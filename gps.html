@@ -4,180 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gps.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script/gps.js"></script>
+
     <title>Document</title>
     <style>
-        #dvMap {
-            height: 450px;
-            width: 1500px;
-            margin-left:10px;
-        }
+
     </style>
 </head>
 
-<body>
-   
-    <div id="dvMap"></div>
-        <div class="card text-light " style="width:1510px; ">
-            <div id="result" style="margin-left:10px;">
-                <ul class="list-group">         
-                    <li class="list-group-item" id="in_kilo">Distanceis Kilo:</li>
-                    <li class="list-group-item" id="duration_text">INTEXT:</li>
-                    <li class="list-group-item" id="from">FROM:</li>
-                    <li class="list-group-item" id="to">TO:</li>
-                </ul>
+<body class="body">
+
+    <div class="">
+            <strong class="content">MAP</strong>
+            <div id="dvMap"></div>
+            <div class="card text-light tapdistance" style="width:1510px; ">
+                <div id="result" style="margin-left:10px;">
+                    <ul class="list-group">
+                        <li class="list-group-item" id="in_kilo">Distanceis Kilo:</li>
+                        <li class="list-group-item" id="duration_text">INTEXT:</li>
+                        <li class="list-group-item" id="from">FROM:</li>
+                        <li class="list-group-item" id="to">TO:</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        
-  
-    <script>
-        var markers = [
-            {
-                "title": 'มหาวิทยาลัยสงขลานครินทร์ วิทยาเขต ภูเก็ต',
-                "lat": '7.8948671',
-                "lng": '98.3531003',
-                "description": ''
-            }
-            ,
-            {
-                "title": 'ตู้กับข้าว',
-                "lat": '7.8836764',
-                "lng": '98.3879528',
-                "description": ''
-            }
+    </div>
 
-        ];
-
-
-        window.onload = function () {
-
-            var location = { lat: 7.8948671, lng: 98.3531003 };
-            var mapOptions = {
-                // center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
-                zoom: 15,
-                center: location
-
-            };
-
-
-            var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
-            var infoWindow = new google.maps.InfoWindow();
-
-            var lat_lng = new Array();
-            var latlngbounds = new google.maps.LatLngBounds();
-
-
-            for (i = 0; i < markers.length; i++) {
-                var data = markers[i]
-                var myLatlng = new google.maps.LatLng(data.lat, data.lng);
-                lat_lng.push(myLatlng);
-
-
-                var marker = new google.maps.Marker({
-                    position: myLatlng,
-                    map: map,
-                    title: data.title
-                });
-
-                latlngbounds.extend(marker.position);
-
-
-                (function (marker, data) {
-                    google.maps.event.addListener(marker, "click", function (e) {
-                        infoWindow.setContent(data.description);
-                        infoWindow.open(map, marker);
-                    });
-                })(marker, data);
-            }
-            map.setCenter(latlngbounds.getCenter());
-            map.fitBounds(latlngbounds);
-
-
-
-
-            var path = new google.maps.MVCArray();
-
-
-            var service = new google.maps.DirectionsService();
-
-
-            var poly = new google.maps.Polyline({ map: map, strokeColor: '#c249e7' });
-
-
-            for (var i = 0; i < lat_lng.length; i++) {
-                if ((i + 1) < lat_lng.length) {
-                    var src = lat_lng[i];
-                    var des = lat_lng[i + 1];
-                    path.push(src);
-                    poly.setPath(path);
-                    service.route({
-                        origin: src,
-                        destination: des,
-                        travelMode: google.maps.DirectionsTravelMode.DRIVING
-
-                    }, function (result, status) {
-                        if (status == google.maps.DirectionsStatus.OK) {
-                            for (var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
-                                path.push(result.routes[0].overview_path[i]);
-                            }
-                        }
-                    });
-                }
-            }
-        
-
-        var origin = { lat: 7.8948671, lng: 98.3531003 }
-        var destination = { lat: 7.8836764, lng: 98.3879528 }
-        var service = new google.maps.DistanceMatrixService();
-        service.getDistanceMatrix(
-            {
-                origins: [origin],
-                destinations: [destination],
-                travelMode: google.maps.TravelMode.DRIVING,
-                unitSystem: google.maps.UnitSystem.IMPERIAL, // miles and feet.
-                unitSystem: google.maps.UnitSystem.metric, // kilometers and meters.
-                avoidHighways: false,
-                avoidTolls: false
-            },
-            callback
-        );
-        // get distance results
-        function callback(response, status) {
-            if (status != google.maps.DistanceMatrixStatus.OK) {
-                $("#result").html(err);
-            } else {
-                var origin = response.originAddresses[0];
-                var destination = response.destinationAddresses[0];
-                if (response.rows[0].elements[0].status === "ZERO_RESULTS") {
-                    $("#result").html(
-                        "Better get on a plane. There are no roads between " +
-                        origin +
-                        " and " +
-                        destination
-                    );
-                } else {
-                    var distance = response.rows[0].elements[0].distance;
-                    var duration = response.rows[0].elements[0].duration;
-
-                    var distance_in_kilo = distance.value / 1000; // the kilom
-                    var distance_in_mile = distance.value / 1609.34; // the mile
-                    var duration_text = duration.text;
-                    var duration_value = duration.value;
-                    $("#in_mile").text(distance_in_mile.toFixed(2));
-                    $("#in_kilo").text('Distance : ' + distance_in_kilo.toFixed(2)+' Km');
-                    $("#duration_text").text('Time : '+duration_text );
-                    $("#duration_value").text(duration_value);
-                    $("#from").text('Origin : ' + origin);
-                    $("#to").text('destination : '+ destination);
-                }
-            }
-        }
-         }
-    </script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBhWuKcXhA0rPoxgPS_2-VFCFuRuKpa2w"
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBhWuKcXhA0rPoxgPS_2-VFCFuRuKpa2w"
         type="text/javascript"></script>
+        
 </body>
 
 </html>

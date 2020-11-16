@@ -12,8 +12,8 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/9a27a07ea6.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <!-- <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css" />
   <link
     href="https://fonts.googleapis.com/css2?family=Charm&family=Chonburi&family=Kanit&family=Pattaya&family=Sarabun&family=Sriracha&family=Thasadith:wght@700&display=swap"
@@ -22,6 +22,9 @@
     <script  src="https://www.gstatic.com/firebasejs/7.16.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-analytics.js"></script>
     <script  src="https://www.gstatic.com/firebasejs/7.16.0/firebase-firestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script src="html2canvas.min.js"></script>
+    <!-- <script src="html2pdf.bundle.min.js"></script> -->
   <link rel="stylesheet" href="menu.css">
 </head>
 
@@ -53,20 +56,20 @@
     </div> -->
   </div>
 
-  <button type="button" id="toolIcon" class="tool btn">
-    <i class="far fa-image"></i>
+  <button type="button" id="toolIcon" class="tool btn">Image
+    <!-- <i class="far fa-image"></i> -->
   </button>
 
-  <button type="button" id="bin" class="bin btn">
+  <!-- <button type="button" id="bin" class="bin btn">
     <i class="far fa-trash-alt"></i>
+  </button> -->
+
+  <button type="button" id="toolBg" class="toolBg btn">Background
+    <!-- <i class="far fa-file-image"></i> -->
   </button>
 
-  <button type="button" id="toolBg" class="toolBg btn">
-    <i class="far fa-file-image"></i>
-  </button>
-
-  <button type="button" id="toolPic" class="toolPic btn">
-    <i class="fas fa-star-half-alt"></i>
+  <button type="button" id="toolPic" class="toolPic btn">Clip Art
+    <!-- <i class="fas fa-star-half-alt"></i> -->
   </button>
 
   <div id="tool" class="toolBox">
@@ -79,8 +82,12 @@
   </div>
 
   <button type="button" id="textTool" class="textEdit btn">
-    <i class="far fa-file-alt"></i>
+    <!-- <i class="far fa-file-alt"></i> -->Text
   </button>
+
+  <div  id="textTool" class="toolColorTemp btn">
+    <br>
+  </div>
 
 
   <div id="tool" class="textToolBox">
@@ -155,6 +162,8 @@
     <button type="button" id="imgToolClose" class="toolClose btn"> <i class="fas fa-angle-left"></i> </button>
   </div>
 
+ 
+
   <div class="page" style="height: auto;"></div>
 
 
@@ -162,23 +171,18 @@
     <div class="modal-dialog">
       <div class="modal-content" style="margin-top: 150px;">
         <div class="modal-header">
-          <h4 class="modal-title">Page</h4>
+          <h4 class="modal-title">Information</h4>
         </div>
 
         <div class="modal-body">
-          <p>Size
-            <select class="size form-control form-control-sm">
-              <option value="A4">A4</option>
-              <option value="A5">A5</option>
-              <option value="A3">A3</option>
-            </select>
+          <p>Restaurant Name
+            <br>
+            <input type="text" id="restName" name="restName" style="width:100%">
           </p>
 
-          <p>Layout
-            <select class="rayout form-control form-control-sm">
-              <option value="vertical">Vertical</option>
-              <option value="landscape">Landscape</option>
-            </select>
+          <p>Tel. 
+            <br>
+            <input type="text" id="tel" name="tel"  style="width:100%">
           </p>
         </div>
 

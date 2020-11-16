@@ -1,4 +1,3 @@
-
 var firebaseConfig = {
   apiKey: "AIzaSyDV6YCH-knnBtoCdvT1Z2wEkOU9y_NF_IU",
   authDomain: "phuketfood-a4623.firebaseapp.com",
@@ -16,9 +15,16 @@ var db = firebase.firestore();
 var remove = firebase.firestore.FieldValue;
 var ele = 0;
 var arraySetdata = []
+
+var getemailuser = localStorage.getItem("emailusercollection");
+
+
 $(document).ready(function () {
+  console.log(getemailuser);
+  var showli = 0;
   var refdb = db.collection("collection")
-  refdb.where("id_user", "==", "u_001").get().then((snapshot) => {
+  refdb.where("id_user", "==", getemailuser).get().then((snapshot) => {
+
     snapshot.forEach(doc => {
       var collec = doc.data().collection_name;
       var collecid = doc.data().id_menu;
@@ -27,11 +33,11 @@ $(document).ready(function () {
       var data = doc.data()
 
       arraySetdata.push(data)
-      
+
       // console.log(arraySetdata);
       // id='UL${idmenu}' คือการอิงให้รู้ว่าจะเอาข้อความมาวางไว้ตรงช่องไหน
       var thisx = this;
-      var showCname = `<li class="list-group-item" id="${idcoll}">${collec}<a type="button" class="btn fa- pull-right" onClick="deletecollecton('${idcoll}')">ลบ</a><a class="fa fa-print pull-right btn" onclick="selectCollection('${idcoll}')"></a><button onclick="dropup(this)" class="fa fa-caret-down pull-right btn" aria-hidden="false" data-toggle="collapse" data-target='#${idmenu}'></button>
+      var showCname = `<li class="list-group-item" id="${idcoll}">${collec}<a type="button" class="btn fa- pull-right" onClick="deletecollecton('${idcoll}')">Delete</a><a class="fa fa-print pull-right btn" onclick="selectCollection('${idcoll}')"></a><button onclick="dropup(this)" class="fa fa-caret-down pull-right btn" aria-hidden="false" data-toggle="collapse" data-target='#${idmenu}'></button>
       <div class="collapse" id='${idmenu}'>
       
             <ul class="list-group list-group-flush " id='UL${idmenu}'></ul>
@@ -39,6 +45,8 @@ $(document).ready(function () {
             </li>
             <hr>`
       $('#showCname').append(showCname)
+      console.log('idcoll '+idcoll);
+      console.log('idmenu '+idmenu);
       if (collecid == "") {
         $("#UL" + idmenu).append("<center>empty</center>");
       } else {
@@ -56,8 +64,6 @@ $(document).ready(function () {
 });
 
 function dropup(x){
-  console.log()
-  console.log("12312121");
   x.classList.toggle("fa-caret-up");
 }
 function arrayget(idnemu, idcoll, idmenu) {
@@ -65,13 +71,13 @@ function arrayget(idnemu, idcoll, idmenu) {
   for (let index = 0; index < idnemu.length; index++) {
     const element = idnemu[index];
     console.log(element);
-    db.collection("menu").where("id_Menu", "==", element).get().then((snapshot) => {
+    db.collection("menuNew").where("id_Menu", "==", element).get().then((snapshot) => {  
       snapshot.forEach(doc => {
         console.log(doc.data().chinese_Name);
         var name = doc.data().english_Name;
 
         var showli = `
-        <li class="list-group-item" style="margin-top:10px;" id="${element}" >${name} <a type="button" class="btn fa fa-minus pull-right" onClick="deleteArray('${idcoll}','${element}')"></a></li>`
+        <li class="list-group-item" style="margin-top:10px;" id="${element}" >${name} <i  class="btn fa fa-trash-o pull-right" onClick="deleteArray('${idcoll}','${element}')"></i></li>`
 
         $('#UL' + idmenu).append(showli)
 
@@ -108,18 +114,11 @@ function selectCollection(collecdata){
 if(collecdata==""){
   console.log("null");
 }else{
+  console.log(collecdata);
   localStorage.setItem("datacollec",collecdata);
   window.location.href = 'menu.html';
 }
-
-
-// var getdataaa = localStorage.getItem("datacollec")
-// var idmenuu = JSON.parse(localStorage.getItem("idmenu"))
-// console.log(getdataaa);
-// console.log(idmenuu);
-
-
 }
 
-
-
+var getdataaa = localStorage.getItem("datacollec")
+console.log(getdataaa);

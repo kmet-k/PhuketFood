@@ -160,6 +160,7 @@ function createModal(name, name_2, name_3, meat, type, rec, pic, id) {
         $("#type").empty();
         $("#type").append("Other types");
     }
+    
     $("#meatModal").show();
     if (meat == "m_001") {
         $("#meatModal").css("background-image", "url('img/pig.png')")
@@ -190,7 +191,7 @@ function createModal(name, name_2, name_3, meat, type, rec, pic, id) {
         localStorage.setItem("chaiName", name);
         localStorage.setItem("setImage", pic);
         localStorage.setItem("setID", id);
-        window.location.href = 'res_information.html';
+        window.open('res_information.html')
     });
 
 }

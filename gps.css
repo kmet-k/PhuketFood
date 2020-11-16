@@ -1,0 +1,33 @@
+
+.body{
+   background-color: rgb(170, 170, 169);
+}
+
+.content {
+    position: absolute;
+   top: 2%;
+    text-align: center;
+    font-size: 16px;
+    right: auto ;
+    left: 50%;
+    color: rgb(255, 255, 255);
+
+  }
+
+.tapdistance{
+    position: absolute;
+    top: 69% ;
+    bottom: 10%;
+    right: auto;
+    left: 2.5%;
+}
+
+#dvMap {
+    height: 460px;
+    width: 1500px;
+    margin-top: 50px;
+    margin-left:0;
+    position:absolute;
+    right: auto;
+    left: 3%;
+}

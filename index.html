@@ -2,222 +2,425 @@
 <html lang="en">
 
 <head>
-  <title>Home</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  
-  <script src="script/app.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-firestore.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="script/app.js"></script>
 </head>
 
 <body class="bgcolor">
 
-  <!-- <nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand"></a>
 
 
-    <div class="form-group ml-auto" style="width: 10px; margin-bottom: 3px; margin-left: 1720px;"></div>
-    <select class="" id="slick">
-      <option value="English" onclick='setlang("eng")'
-        data-imagesrc="https://sites1.christophlutz.co.uk/gbmag/wp-content/uploads/2017/01/UK-flag-union-jack-1024x683.jpg">
-      </option>
-      <option value="Chinese" onclick="setlang('cn')"
-        data-imagesrc="https://images-na.ssl-images-amazon.com/images/I/51VQMvWgzML._AC_SL1500_.jpg"></option>
-      <option value="Thai" onclick="setlang('en')"
-        data-imagesrc="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/1200px-Flag_of_Thailand.svg.png">
-      </option>
-    </select>
+    <div id="loading">
+        <img src="https://thumbs.gfycat.com/AcceptablePerfumedIraniangroundjay-small.gif" style="width: 10%;">
     </div>
-  </nav> -->
 
-  <div class="imglogo">
-    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/5471769969637.560dd4b8d6c3a.png">
-
-  </div>
-  
-
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="searchBar row col-8" style="padding-right: 0px;">
-      <div class="col-10" style="padding: 0;">
-        <input type="text" placeholder="search" id="search" class="col-12 inputSearch">
-      </div>
-      <div class="col-1" style="padding: 0;">
-        <i class="fas fa-filter iconFilter" data-toggle="modal" data-target="#myFilter"></i>
-      </div>
-      <div class="col-1" style="padding: 0px;">
-        <button type="button " class="searchBtn" onclick="searchNow()"><i class="fas fa-search "></i></button>
-      </div>
+    <div class="register" id="loginuser">
+        <button class="buttonloginregis button1" data-toggle="modal" data-target="#myModal">
+            Login
+        </button>
+        <button class="buttonloginregis button2" data-toggle="modal" data-target="#myreModal">
+            Register
+        </button>
     </div>
-    <div class="col-2"></div>
-  </div>
 
-  <div class="row">
-    <div class="col-2"></div>
-    <div class=" row col-8" style="left: 16.66%; padding-right: 0px; z-index: 55; position: absolute;">
-      <div class="col-10" style="padding: 0;" id="result">
-      </div>
-      <div class="col-1" style="padding: 0;">
-        
-      </div>
-      <div class="col-1" style="padding: 0px;">
-      </div>
+
+    <div id="logoutuser">
+        <button type="button" class="btn btn-dark register" onclick="logout()">
+            Logout
+        </button>
+
     </div>
-    <div class="col-2"></div><div class="col-2"></div>
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <form action="/action_page.php">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" placeholder="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="password" name="pswd">
+                        </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                            </label>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="resbtnposition">
+                                <button type="button" class="buttonloginregis regisbtn" data-toggle="modal"
+                                    data-target="#myreModal">
+                                    Register
+                                </button>
+                            </div>
+                            <div class="loginposition">
+                                <button type="button" class="buttonloginregis closebtn"
+                                    data-dismiss="modal">Close</button>
+                                <button type="submit" class="buttonloginregis loginbtn" data-dismiss="modal"
+                                    onclick="login()">Login</button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="myreModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <form action="/action_page.php">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="regisemail" placeholder="email" name="reemail">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="regispwd" placeholder="password"
+                                name="repswd">
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="buttonloginregis closebtn" data-dismiss="modal">Close</button>
+                            <button type="submit" class="buttonloginregis submitbtn" data-dismiss="modal"
+                                onclick="register()">submit</button>
+
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="imglogo">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/5471769969637.560dd4b8d6c3a.png">
     
-    
-  </div>
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="row col-8" style="padding-right: 0px;">
-      <div class="col-10" style="margin-top: 5px; margin-left: 40px; padding: 0; text-align: left; font-size: 3px; color: rgb(233, 233, 233);" id="by">
-         asdasdasdads
       </div>
-      <div class="col-1" style="padding: 0;">
-        
-      </div>
-      <div class="col-1" style="padding: 0px;">
-        
-      </div>
-    </div>
-    <div class="col-2"></div>
-  </div>
 
 
-  <div id="demo" class="carousel slide" data-ride="carousel" style="margin-top: 5%;">
-
-    <!-- Indicators -->
-    <!-- <ul class="carousel-indicators" style="top:100%;">
-      <li data-target="#demo" data-slide-to="0" class="active"></li>
-      <li data-target="#demo" data-slide-to="1"></li>
-      <li data-target="#demo" data-slide-to="2"></li>
-    </ul> -->
-
-    <!-- The slideshow -->
-    <!-- <div class="container carousel-inner no-padding">
-      <div class="carousel-item active" id="carousel1">
-        <div class="col-xs-3 col-sm-3 col-md-3">
-          <img
-            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+    <div class="row" id="searchBox">
+        <div class="col-2"></div>
+        <div class="searchBar row col-8" style="padding-right: 0px;">
+            <div class="col-10" style="padding: 0;">
+                <input type="text" placeholder="search" id="search" class="col-12 inputSearch">
+            </div>
+            <div class="col-1" style="padding: 0;">
+                <i class="fas fa-filter iconFilter" data-toggle="modal" data-target="#myFilter"></i>
+            </div>
+            <div class="col-1" style="padding: 0px;">
+                <button type="button " class="searchBtn" onclick="searchNow()"><i class="fas fa-search "></i></button>
+            </div>
         </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-          <img
-            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-        </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-          <img
-            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-        </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-          <img
-            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-        </div>
-      </div>
-      <div class="carousel-item" id="carousel2">
-        <div class="col-xs-3 col-sm-3 col-md-3">
-          <img
-            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-        </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-          <img
-            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-        </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-          <img
-            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-        </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-          <img
-            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-        </div>
-      </div>
-      <div class="carousel-item" id="carousel3">
-        <div class="col-xs-3 col-sm-3 col-md-3">
-          <img
-            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-        </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-          <img
-            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-        </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-          <img
-            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-        </div>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-          <img
-            src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
-        </div>
-      </div>
+        <div class="col-2"></div>
     </div>
 
-  </div> -->
 
+    <div class="row">
+        <div class="col-2"></div>
+        <div class=" row col-8" style="left: 16.66%; padding-right: 0px; z-index: 55; position: absolute;">
+            <div class="col-10" style="padding: 0;" id="result">
+            </div>
+            <div class="col-1" style="padding: 0;">
 
-
-
-
-  <div class="modal fade" id="myFilter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <span>Type</span>
-          <hr>
-          <div class="type" id="type"></div>
-          <hr><span>Meat</span>
-          <hr>
-          <div class="meat" id="meat"></div>
+            </div>
+            <div class="col-1" style="padding: 0px;">
+            </div>
         </div>
-      </div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+
+
     </div>
-  </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="row col-8" style="padding-right: 0px;">
+            <div class="col-10"
+                style="margin-top: 5px; margin-left: 40px; padding: 0; text-align: left; font-size: 3px; color: rgb(233, 233, 233);"
+                id="by">
+                asdasdasdads
+            </div>
+            <div class="col-1" style="padding: 0;">
+
+            </div>
+            <div class="col-1" style="padding: 0px;">
+
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+
+    <div id="demo" class="carousel slide" data-ride="carousel" style="margin-top: 5%;">
 
 
 
 
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script type="text/javascript"
-    src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
-  <script type="text/javascript"
-    src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-  <script>
-    $("#slick").ddslick({
-      width: "60px",
-      imagePosition: "left",
-      selectText: "Select your social network",
-      onSelected: function (data) {
-        $("#selected").html(data.selectedData.value);
-      }
-    })
+        <div class="modal fade" id="myFilter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <span>Type</span>
+                        <hr>
+                        <div class="type" id="type"></div>
+                        <hr><span>Meat</span>
+                        <hr>
+                        <div class="meat" id="meat"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<div id="hideUsernotlogin">
+        <!-- RICE -->
+        <div class="typerice">
+            <!-- <h1>RICE</h1>
+            <button class="btnshowall" id="togglebtn">Show all</button> -->
+        </div>
+        <div class="bgdiv" id="ricetoggle">
+            <div class="row" id="rice">
+            </div>
+        </div><br>
+        <!-- noodle -->
+        <div class="typenoodle">
+            <!-- <h1>NOODLE</h1>
+            <button class="btnshowall1" id="togglebtn1" style="top: 150px; right: 0; left: 93%; position: absolute;">Show all</button> -->
+        </div>
+        <div class="bgdiv" id="noodletoggle">
+            <div class="row" id="noodle">
+            </div>
+        </div><br>
+        <!-- soup -->
+        <div class="typersoup">
+            <!-- <h1>SOUP</h1>
+            <button class="btnshowall1" id="togglebtn2" style="top: 270px; right: 0; left: 93%; position: absolute;">Show all</button> -->
+        </div>
+        <div class="bgdiv" id="souptoggle">
+            <div class="row" id="soup">
+            </div>
+        </div><br>
+        <!-- curry -->
+        <div class="typecurry">
+            <!-- <h1>CURRY</h1>
+            <button class="btnshowall1" id="togglebtn3" style="top: 390px; right: 0; left: 93%; position: absolute;">Show all</button> -->
+        </div>
+        <div class="bgdiv" id="currytoggle">
+            <div class="row" id="curry">
+            </div>
+        </div><br>
+        <!-- Grill -->
+        <div class="typegrill">
+            <!-- <h1>GRILL</h1>
+            <button class="btnshowall1" id="togglebtn4" style="top: 513px; right: 0; left: 93%; position: absolute;">Show all</button> -->
+        </div>
+        <div class="bgdiv" id="grilltoggle">
+            <div class="row" id="grill">
+            </div>
+        </div><br>
+        <!-- Stir-fry -->
+        <div class="typestirfry">
+            <!-- <h1>STIR FRY</h1>
+            <button class="btnshowall1" id="togglebtn5" style="top: 630px; right: 0; left: 93%; position: absolute;">Show all</button> -->
+        </div>
+        <div class="bgdiv" id="stirfrytoggle">
+            <div class="row" id="stirfry">
+            </div>
+        </div><br>
+        <!-- Fried -->
+        <div class="typefried">
+            <!-- <h1>FRIED</h1>
+            <button class="btnshowall1" id="togglebtn6" style="top: 750px; right: 0; left: 93%; position: absolute;">Show all</button> -->
+        </div>
+        <div class="bgdiv" id="friedtoggle">
+            <div class="row" id="fried">
+            </div>
+        </div><br>
+        <!-- Cold dishes -->
+        <div class="typecolddishes">
+            <!-- <h1>CLOD DISHES</h1>
+            <button class="btnshowall1" id="togglebtn7" style="top: 870px; right: 0; left: 93%; position: absolute;">Show all</button> -->
+        </div>
+        <div class="bgdiv" id="colddishestoggle">
+            <div class="row" id="colddishes">
+            </div>
+        </div><br>
+        <!-- Dessert and snack -->
+        <div class="typedesert">
+            <!-- <h1>DESSERT AND SNACK</h1>
+            <button class="btnshowall1" id="togglebtn8" style="top: 990px; right: 0; left: 93%; position: absolute;">Show all</button> -->
+        </div>
+        <div class="bgdiv" id="desserttoggle">
+            <div class="row" id="dessertandsnack">
+            </div>
+        </div><br>
+        <!-- Beverage -->
+        <div class="typebeverage">
+            <!-- <h1>BEVERAGE</h1>
+            <button class="btnshowall1" id="togglebtn9" style="top: 1110px; right: 0; left: 93%; position: absolute;">Show all</button> -->
+        </div>
+        <div class="bgdiv" id="bevertoggle">
+            <div class="row" id="beverage">
+            </div>
+        </div><br>
+        <!-- Fruit-->
+        <div class="typefruit">
+            <!-- <h1>FRUIT</h1>
+            <button class="btnshowall1" id="togglebtn10" style="top: 1225px; right: 0; left: 93%; position: absolute;">Show all</button> -->
+        </div>
+        <div class="bgdiv" id="fruittoggle">
+            <div class="row" id="fruit">
+            </div>
+        </div><br>
+        <!-- Other types -->
+        <div class="typeother">
+            <!-- <h1>OTHER TYPE</h1>
+            <button class="btnshowall1" id="togglebtn11" style="top: 1347px; right: 0; left: 93%; position: absolute;">Show all</button> -->
+        </div>
+        <div class="bgdiv" id="othertoggle">
+            <div class="row" id="othertypes">
+            </div>
+        </div>
+    </div>
+        <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" style=" margin-left: 50px;"></h5>
+                        <div id="rex" class="rec "> </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="moreName" class="row" style="margin-left:2%; margin-bottom: 2%;">
+                            <div id="name2">
+                                罗勒叶炒猪肉饭
+                            </div>
+                            <div id="slash" class="col-1">
+                                /
+                            </div>
+                            <div id="name3">
+                                ข้าวไก่ไห่หนาน
+                            </div>
+                        </div>
+                        <div class="row" style="margin-left:2%; margin-bottom: 2%;">
+                            <div id="typename"></div>
+                            <div id="meatModal" class="col-1 meatModal"> </div>
+                        </div>
+                        <div id="imgModal" class="imgModal">
 
-  </script>
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" style=" margin-left: 50px;"></h5>
+                        <div id="rex" class="rec "> </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="moreName" class="row" style="margin-left:2%; margin-bottom: 2%;">
+                            <div id="name2">
+                                罗勒叶炒猪肉饭
+                            </div>
+                            <div id="slash" class="col-1">
+                                /
+                            </div>
+                            <div id="name3">
+                                ข้าวไก่ไห่หนาน
+                            </div>
+                        </div>
+                        <div class="row" style="margin-left:2%; margin-bottom: 2%;">
+                            <div id="type"> noodle </div>
+                            <div id="meatModal" class="col-1 meatModal"> </div>
+                        </div>
+                        <div id="imgModal" class="imgModal">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript"
+            src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+        <script type="text/javascript"
+            src="https://cdn.rawgit.com/prashantchaudhary/ddslick/master/jquery.ddslick.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+        <script>
+            $("#slick").ddslick({
+                width: "60px",
+                imagePosition: "left",
+                selectText: "Select your social network",
+                onSelected: function (data) {
+                    $("#selected").html(data.selectedData.value);
+                }
+            })
+
+        </script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 
 
 </body>

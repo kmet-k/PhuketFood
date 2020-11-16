@@ -42,18 +42,16 @@ body{
         padding-top: 9px;
     }
     .tool{
-      position: fixed;
-      top: 200;
-      background-color: white;
-      box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, .5);
-      border-radius: 0px 75px 75px 0px;
-      font-size: 18px;
-      z-index: 5;
-      color: rgb(49, 49, 49);
-    }
-    .tool:hover{
-        width: 60px;
-    }
+        position: fixed;
+        top: 200;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, .5);
+        border-radius: 0px 75px 75px 0px;
+        font-size: 10px;
+        z-index: 5;
+        color: rgb(49, 49, 49);
+      }
+     
     .page{
       z-index: 0;
     }
@@ -155,12 +153,19 @@ body{
         background-color: white;
         box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, .5);
         border-radius: 0px 75px 75px 0px;
-        font-size: 18px;
+        font-size: 10px;
         z-index: 5;
         color: rgb(49, 49, 49);
     }
-    .textEdit:hover{
-        width: 60px;
+    .toolColorTemp{
+        position: fixed;
+        top:20%;
+        right: 0%;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, .5);
+        border-radius: 20px 0px 0px 20px;
+        font-size: 15px;
+        z-index: 5;
     }
 
     .textToolBox{
@@ -273,6 +278,7 @@ body{
         margin-right: 3%;
         margin-left: 3%;
         
+        
     }
     .templateItem{
         width: 70%;
@@ -290,12 +296,10 @@ body{
         background-color: white;
         box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, .5);
         border-radius: 0px 75px 75px 0px;
-        font-size: 18px;
+        font-size: 10px;
         z-index: 5;
         color: rgb(49, 49, 49);
-    }
-    .toolBg:hover{
-          width: 60px;
+        
     }
     .bgtoolBox{
         position: fixed;
@@ -329,12 +333,9 @@ body{
         background-color: white;
         box-shadow: 0px 0px 5px 0px rgba(30, 30, 30, .5);
         border-radius: 0px 75px 75px 0px;
-        font-size: 15px;
+        font-size: 10px;
         z-index: 5;
         color: rgb(49, 49, 49);
-    }
-    .toolPic:hover{
-          width: 60px;
     }
     .imgtoolBox{
         position: fixed;

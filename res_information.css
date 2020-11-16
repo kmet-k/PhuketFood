@@ -1,0 +1,153 @@
+.bgcolor{
+    background-color:rgb(233, 233, 233);
+    text-align: center;
+    margin: 0px;
+}
+  .register{
+    position: relative;
+    right: 0;
+    left: 42%;
+    margin-top: 10px;
+  }
+.allbtnposition{
+  position: absolute;
+  left: 20%;
+  margin-top: 5px;
+}
+  .buttonloginregis {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding:  7px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.6ss;
+    border-radius: 4px;
+
+}
+.button1:hover {
+  background-color: white; 
+  color: black; 
+  border: 2px solid orange;
+}
+.button1 {
+  background-color: orange;
+  color: white;
+  border: 2px solid orange;
+}
+
+.button2:hover {
+  background-color: white; 
+  padding: 7px 32px;
+  color: black; 
+  border: 2px solid #4B0082;
+}
+.button2 {
+  background-color: #4B0082;
+  color: white;
+  border: 2px solid #4B0082
+}
+.regisbtn:hover {
+  background-color: white;
+  padding: 7px 32px;
+  color: black; 
+  border: 2px solid #4B0082;
+}
+.regisbtn{
+  background-color: #4B0082;
+  color: white;
+  border: 2px solid #4B0082
+}
+
+.resbtnposition{
+  position: absolute;
+    right:70%;
+    left: 0;
+    margin-top: 10px;
+}
+
+.loginbtn:hover{
+  background-color: white;
+  padding: 7px 32px;
+  color: black; 
+  border: 2px solid orange;
+}
+
+.loginbtn{
+  background-color: orange;
+  color: white;
+  border: 2px solid orange;
+}
+.loginposition{
+  position: relative;
+  margin: auto;
+    right:0;
+    left: 5%;
+    margin-top: 10px;
+}
+
+.closebtn:hover{
+  background-color: white;
+  padding: 7px 32px;
+  color: black; 
+  border: 2px solid rgb(212, 1, 1);
+
+}
+
+.closebtn{
+  background-color: rgb(212, 1, 1);
+  color: white;
+  border: 2px solid rgb(212, 1, 1);
+}
+
+.submitbtn:hover{
+  background-color: white;
+  padding: 7px 32px;
+  color: black; 
+  border: 2px solid rgb(36, 255, 153);
+
+}
+.submitbtn{
+  background-color:  rgb(36, 255, 153);
+  color: white;
+  border: 2px solid  rgb(36, 255, 153);
+}
+
+.creatsubmitbtn:hover{
+  background-color: white;
+  padding: 7px 32px;
+  color: black; 
+  border: 2px solid rgb(1, 124, 67);
+
+}
+.creatsubmitbtn{
+  background-color:  rgb(1, 124, 67);
+  color: white;
+  border: 2px solid  rgb(1, 124, 67);
+}
+
+#createCall{
+  position: absolute;
+  right: 100%;
+  left: 0;
+}
+.setdivshowtype{
+  position: relative;
+    right: auto;
+    left: auto;
+    margin-top: 5px;
+}
+.showtypeNamebtn{
+  position:absolute;
+  top: 0px;
+  bottom: 0px;
+}
+
+#disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
