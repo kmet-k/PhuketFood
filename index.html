@@ -24,115 +24,125 @@
 
 <body class="bgcolor">
 
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
 
 
-    <div id="loading">
-        <img src="https://thumbs.gfycat.com/AcceptablePerfumedIraniangroundjay-small.gif" style="width: 10%;">
-    </div>
-
-    <div class="register" id="loginuser">
-        <button class="buttonloginregis button1" data-toggle="modal" data-target="#myModal">
-            Login
-        </button>
-        <button class="buttonloginregis button2" data-toggle="modal" data-target="#myreModal">
-            Register
-        </button>
-    </div>
 
 
-    <div id="logoutuser">
-        <button type="button" class="btn btn-dark register" onclick="logout()">
-            Logout
-        </button>
+            <div id="loading">
+                <img src="https://thumbs.gfycat.com/AcceptablePerfumedIraniangroundjay-small.gif" style="width: 10%;">
+            </div>
 
-    </div>
+            <li class="register" id="loginuser">
+                <a class="buttonloginregis button1" data-toggle="modal" data-target="#myModal">
+                    Login
+                </a>
+                <a class="buttonloginregis button2" onclick="registerbtn()">
+                    Register
+                </a>
+            </li>
 
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
 
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <form action="/action_page.php">
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="email" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="password" name="pswd">
-                        </div>
-                        <div class="form-group form-check">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                            </label>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="resbtnposition">
-                                <button type="button" class="buttonloginregis regisbtn" data-toggle="modal"
-                                    data-target="#myreModal">
-                                    Register
-                                </button>
-                            </div>
-                            <div class="loginposition">
-                                <button type="button" class="buttonloginregis closebtn"
-                                    data-dismiss="modal">Close</button>
-                                <button type="submit" class="buttonloginregis loginbtn" data-dismiss="modal"
-                                    onclick="login()">Login</button>
-
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Modal footer -->
-
+            <div class="logoutcss" id="logoutuser">
+                <button type="button" class="btn btn-dark " onclick="logout()">
+                    Logout
+                </button>
 
             </div>
-        </div>
-    </div>
 
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
 
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <form action="/action_page.php">
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" id="email" placeholder="email"
+                                        name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Password:</label>
+                                    <input type="password" class="form-control" id="pwd" placeholder="password"
+                                        name="pswd">
+                                </div>
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                                    </label>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="resbtnposition">
+                                        <button type="button" class="buttonloginregis regisbtn" data-toggle="modal"
+                                            data-target="#myreModal">
+                                            Register
+                                        </button>
+                                    </div>
+                                    <div class="loginposition">
+                                        <button type="button" class="buttonloginregis closebtn"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="submit" class="buttonloginregis loginbtn" data-dismiss="modal"
+                                            onclick="login()">Login</button>
 
-    <div class="modal fade" id="myreModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <form action="/action_page.php">
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="regisemail" placeholder="email" name="reemail">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="regispwd" placeholder="password"
-                                name="repswd">
-                        </div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="buttonloginregis closebtn" data-dismiss="modal">Close</button>
-                            <button type="submit" class="buttonloginregis submitbtn" data-dismiss="modal"
-                                onclick="register()">submit</button>
+                        <!-- Modal footer -->
 
-                        </div>
-                    </form>
+
+                    </div>
                 </div>
-
-                <!-- Modal footer -->
-
-
             </div>
-        </div>
-    </div>
+
+
+
+            <!-- <div class="modal fade" id="myreModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                     
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <form action="/action_page.php">
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" id="regisemail" placeholder="email"
+                                        name="reemail">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Password:</label>
+                                    <input type="password" class="form-control" id="regispwd" placeholder="password"
+                                        name="repswd">
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="buttonloginregis closebtn"
+                                        data-dismiss="modal">Close</button>
+                                    <button type="submit" class="buttonloginregis submitbtn" data-dismiss="modal"
+                                        onclick="register()">submit</button>
+
+                                </div>
+                            </form>
+                        </div>
+
+                     
+
+
+                    </div>
+                </div>
+            </div> -->
+        </ul>
+    </nav>
 
     <div class="imglogo">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/5471769969637.560dd4b8d6c3a.png">
-    
-      </div>
+
+    </div>
 
 
     <div class="row" id="searchBox">
@@ -207,116 +217,116 @@
                 </div>
             </div>
         </div>
-<div id="hideUsernotlogin">
-        <!-- RICE -->
-        <div class="typerice">
-            <!-- <h1>RICE</h1>
+        <div id="hideUsernotlogin">
+            <!-- RICE -->
+            <div class="typerice">
+                <!-- <h1>RICE</h1>
             <button class="btnshowall" id="togglebtn">Show all</button> -->
-        </div>
-        <div class="bgdiv" id="ricetoggle">
-            <div class="row" id="rice">
             </div>
-        </div><br>
-        <!-- noodle -->
-        <div class="typenoodle">
-            <!-- <h1>NOODLE</h1>
+            <div class="bgdiv" id="ricetoggle">
+                <div class="row" id="rice">
+                </div>
+            </div><br>
+            <!-- noodle -->
+            <div class="typenoodle">
+                <!-- <h1>NOODLE</h1>
             <button class="btnshowall1" id="togglebtn1" style="top: 150px; right: 0; left: 93%; position: absolute;">Show all</button> -->
-        </div>
-        <div class="bgdiv" id="noodletoggle">
-            <div class="row" id="noodle">
             </div>
-        </div><br>
-        <!-- soup -->
-        <div class="typersoup">
-            <!-- <h1>SOUP</h1>
+            <div class="bgdiv" id="noodletoggle">
+                <div class="row" id="noodle">
+                </div>
+            </div><br>
+            <!-- soup -->
+            <div class="typersoup">
+                <!-- <h1>SOUP</h1>
             <button class="btnshowall1" id="togglebtn2" style="top: 270px; right: 0; left: 93%; position: absolute;">Show all</button> -->
-        </div>
-        <div class="bgdiv" id="souptoggle">
-            <div class="row" id="soup">
             </div>
-        </div><br>
-        <!-- curry -->
-        <div class="typecurry">
-            <!-- <h1>CURRY</h1>
+            <div class="bgdiv" id="souptoggle">
+                <div class="row" id="soup">
+                </div>
+            </div><br>
+            <!-- curry -->
+            <div class="typecurry">
+                <!-- <h1>CURRY</h1>
             <button class="btnshowall1" id="togglebtn3" style="top: 390px; right: 0; left: 93%; position: absolute;">Show all</button> -->
-        </div>
-        <div class="bgdiv" id="currytoggle">
-            <div class="row" id="curry">
             </div>
-        </div><br>
-        <!-- Grill -->
-        <div class="typegrill">
-            <!-- <h1>GRILL</h1>
+            <div class="bgdiv" id="currytoggle">
+                <div class="row" id="curry">
+                </div>
+            </div><br>
+            <!-- Grill -->
+            <div class="typegrill">
+                <!-- <h1>GRILL</h1>
             <button class="btnshowall1" id="togglebtn4" style="top: 513px; right: 0; left: 93%; position: absolute;">Show all</button> -->
-        </div>
-        <div class="bgdiv" id="grilltoggle">
-            <div class="row" id="grill">
             </div>
-        </div><br>
-        <!-- Stir-fry -->
-        <div class="typestirfry">
-            <!-- <h1>STIR FRY</h1>
+            <div class="bgdiv" id="grilltoggle">
+                <div class="row" id="grill">
+                </div>
+            </div><br>
+            <!-- Stir-fry -->
+            <div class="typestirfry">
+                <!-- <h1>STIR FRY</h1>
             <button class="btnshowall1" id="togglebtn5" style="top: 630px; right: 0; left: 93%; position: absolute;">Show all</button> -->
-        </div>
-        <div class="bgdiv" id="stirfrytoggle">
-            <div class="row" id="stirfry">
             </div>
-        </div><br>
-        <!-- Fried -->
-        <div class="typefried">
-            <!-- <h1>FRIED</h1>
+            <div class="bgdiv" id="stirfrytoggle">
+                <div class="row" id="stirfry">
+                </div>
+            </div><br>
+            <!-- Fried -->
+            <div class="typefried">
+                <!-- <h1>FRIED</h1>
             <button class="btnshowall1" id="togglebtn6" style="top: 750px; right: 0; left: 93%; position: absolute;">Show all</button> -->
-        </div>
-        <div class="bgdiv" id="friedtoggle">
-            <div class="row" id="fried">
             </div>
-        </div><br>
-        <!-- Cold dishes -->
-        <div class="typecolddishes">
-            <!-- <h1>CLOD DISHES</h1>
+            <div class="bgdiv" id="friedtoggle">
+                <div class="row" id="fried">
+                </div>
+            </div><br>
+            <!-- Cold dishes -->
+            <div class="typecolddishes">
+                <!-- <h1>CLOD DISHES</h1>
             <button class="btnshowall1" id="togglebtn7" style="top: 870px; right: 0; left: 93%; position: absolute;">Show all</button> -->
-        </div>
-        <div class="bgdiv" id="colddishestoggle">
-            <div class="row" id="colddishes">
             </div>
-        </div><br>
-        <!-- Dessert and snack -->
-        <div class="typedesert">
-            <!-- <h1>DESSERT AND SNACK</h1>
+            <div class="bgdiv" id="colddishestoggle">
+                <div class="row" id="colddishes">
+                </div>
+            </div><br>
+            <!-- Dessert and snack -->
+            <div class="typedesert">
+                <!-- <h1>DESSERT AND SNACK</h1>
             <button class="btnshowall1" id="togglebtn8" style="top: 990px; right: 0; left: 93%; position: absolute;">Show all</button> -->
-        </div>
-        <div class="bgdiv" id="desserttoggle">
-            <div class="row" id="dessertandsnack">
             </div>
-        </div><br>
-        <!-- Beverage -->
-        <div class="typebeverage">
-            <!-- <h1>BEVERAGE</h1>
+            <div class="bgdiv" id="desserttoggle">
+                <div class="row" id="dessertandsnack">
+                </div>
+            </div><br>
+            <!-- Beverage -->
+            <div class="typebeverage">
+                <!-- <h1>BEVERAGE</h1>
             <button class="btnshowall1" id="togglebtn9" style="top: 1110px; right: 0; left: 93%; position: absolute;">Show all</button> -->
-        </div>
-        <div class="bgdiv" id="bevertoggle">
-            <div class="row" id="beverage">
             </div>
-        </div><br>
-        <!-- Fruit-->
-        <div class="typefruit">
-            <!-- <h1>FRUIT</h1>
+            <div class="bgdiv" id="bevertoggle">
+                <div class="row" id="beverage">
+                </div>
+            </div><br>
+            <!-- Fruit-->
+            <div class="typefruit">
+                <!-- <h1>FRUIT</h1>
             <button class="btnshowall1" id="togglebtn10" style="top: 1225px; right: 0; left: 93%; position: absolute;">Show all</button> -->
-        </div>
-        <div class="bgdiv" id="fruittoggle">
-            <div class="row" id="fruit">
             </div>
-        </div><br>
-        <!-- Other types -->
-        <div class="typeother">
-            <!-- <h1>OTHER TYPE</h1>
+            <div class="bgdiv" id="fruittoggle">
+                <div class="row" id="fruit">
+                </div>
+            </div><br>
+            <!-- Other types -->
+            <div class="typeother">
+                <!-- <h1>OTHER TYPE</h1>
             <button class="btnshowall1" id="togglebtn11" style="top: 1347px; right: 0; left: 93%; position: absolute;">Show all</button> -->
-        </div>
-        <div class="bgdiv" id="othertoggle">
-            <div class="row" id="othertypes">
+            </div>
+            <div class="bgdiv" id="othertoggle">
+                <div class="row" id="othertypes">
+                </div>
             </div>
         </div>
-    </div>
         <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
