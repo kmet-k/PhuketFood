@@ -598,21 +598,32 @@ function login() {
       });
       
 }
+// function registerbtn(){
+//     window.open('register.html');
+// }
 
-function register(){
+// function register(){
 
-    var getregisemail = document.getElementById("regisemail").value;
-    var getregispassword = document.getElementById("regispwd").value;
+//     var getregisemail = document.getElementById("inputEmail").value;
+//     var getregispassword = document.getElementById("inputPassword").value;
+//     var confirmpassword = document.getElementById("inputConfirmPassword").value;
 
-    
+//     if(getregispassword != confirmpassword ){
+//         alert("confirmpassword is Uncorrect!!")
 
-    firebase.auth().createUserWithEmailAndPassword(getregisemail,getregispassword).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // ...
-      });
-}
+//     }else{
+//         firebase.auth().createUserWithEmailAndPassword(getregisemail,getregispassword)
+//         .catch(function(error) {
+//             // Handle Errors here.
+//             var errorCode = error.code;
+//             var errorMessage = error.message;
+//             // ...
+//           });
+//           $("#registercard").hide()
+
+//     }
+
+// }
 function logout() {
 firebase.auth().signOut().then(function() {
   });
