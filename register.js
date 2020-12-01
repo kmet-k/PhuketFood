@@ -14,7 +14,11 @@ firebase.analytics();
 
 $(document).ready(function () {
 $("#corracRegistercard").hide();
+$("#registercard").show();
 })
+
+
+
 
 function register(){
 
@@ -38,4 +42,8 @@ function register(){
           
     }
 
+}
+
+function closepage(){
+    close();
 }

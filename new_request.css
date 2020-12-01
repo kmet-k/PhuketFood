@@ -164,3 +164,148 @@
 .requestBottom{
   margin-top: 5%;
 }
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  color: #fff;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: gray;
+}
+
+.topnav-right {
+  float: right;
+}
+
+.buttonloginregis {
+color: white;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 20px;
+height: 50px;
+padding: 8px;
+padding-left: 25px;
+padding-right: 25px;
+}
+
+.loguotbtncss{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+
+}
+
+.confirmCollec{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.collectionbtn{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.addmenubtn{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+
+.buttonloginregisII {
+color: white;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 18px;
+height: 40px;
+padding: 4px;
+padding-left: 25px;
+padding-right: 25px;
+}
+
+.regisbtn:hover {
+background-color: DarkOrchid;
+border: none
+}
+
+.regisbtn{
+background-color: #4B0082;
+color: white;
+border: none;
+border-radius: 9px;
+}
+
+.resbtnposition{
+position: absolute;
+  right:70%;
+  left: 0;
+  margin-top: 10px;
+}
+
+.loginbtn:hover{
+background-color: #F3C220;
+border: none;
+}
+
+.loginbtn{
+background-color: orange;
+color: white;
+border: none;
+border-radius: 9px;
+}
+
+.loginposition{
+  position: relative;
+  margin: auto;
+    right:0;
+    left: 32%;
+}
+
+.closebtn:hover{
+background-color: #DB1E1E;
+border: none;
+}
+
+.closebtn{
+background-color: DarkRed;
+color: white;
+border: none;
+border-radius: 9px;
+}

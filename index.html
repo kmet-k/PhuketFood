@@ -24,120 +24,70 @@
 
 <body class="bgcolor">
 
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <ul class="navbar-nav">
+    <div id="loading">
+        <img src="https://thumbs.gfycat.com/AcceptablePerfumedIraniangroundjay-small.gif" style="width: 10%;">
+    </div>
 
-
-
-
-            <div id="loading">
-                <img src="https://thumbs.gfycat.com/AcceptablePerfumedIraniangroundjay-small.gif" style="width: 10%;">
-            </div>
-
-            <li class="register" id="loginuser">
-                <a class="buttonloginregis button1" data-toggle="modal" data-target="#myModal">
+    <div class="topnav" id="navbarloading">
+        <div class="topnav-right">
+            <div id="loginuser">
+                <a class="buttonloginregis " data-toggle="modal" data-target="#myModal">
                     Login
                 </a>
-                <a class="buttonloginregis button2" onclick="registerbtn()">
+                <a class="buttonloginregis " onclick="registerbtn()">
                     Register
                 </a>
-            </li>
-
-
-            <div class="logoutcss" id="logoutuser">
-                <button type="button" class="btn btn-dark " onclick="logout()">
-                    Logout
-                </button>
-
             </div>
 
-            <div class="modal fade" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <form action="/action_page.php">
-                                <div class="form-group">
-                                    <label for="email">Email:</label>
-                                    <input type="email" class="form-control" id="email" placeholder="email"
-                                        name="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">Password:</label>
-                                    <input type="password" class="form-control" id="pwd" placeholder="password"
-                                        name="pswd">
-                                </div>
-                                <div class="form-group form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                                    </label>
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="resbtnposition">
-                                        <button type="button" class="buttonloginregis regisbtn" data-toggle="modal"
-                                            data-target="#myreModal">
-                                            Register
-                                        </button>
-                                    </div>
-                                    <div class="loginposition">
-                                        <button type="button" class="buttonloginregis closebtn"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="submit" class="buttonloginregis loginbtn" data-dismiss="modal"
-                                            onclick="login()">Login</button>
-
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!-- Modal footer -->
-
-
-                    </div>
+            <div>
+                <div>
+                    <a class="addmenubtn" id="hideandshowaddmenubtn" onclick="openaddmenubtn()">Request Menu</a>
+                    <a class="confirmCollec" id="hideandshowconcollectionbtn" onclick="openconmenubtn()">Confirm
+                        Menu</a>
+                    <a class="hideandshowcollecbtn" id="selectcollec"></a>
+                    <a id="logoutuser" class=" loguotbtncss" onclick="logout()">
+                        Logout
+                    </a>
                 </div>
             </div>
 
+        </div>
+    </div>
 
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-            <!-- <div class="modal fade" id="myreModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-
-                     
-                        <div class="modal-body">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <form action="/action_page.php">
-                                <div class="form-group">
-                                    <label for="email">Email:</label>
-                                    <input type="email" class="form-control" id="regisemail" placeholder="email"
-                                        name="reemail">
-                                </div>
-                                <div class="form-group">
-                                    <label for="pwd">Password:</label>
-                                    <input type="password" class="form-control" id="regispwd" placeholder="password"
-                                        name="repswd">
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button type="button" class="buttonloginregis closebtn"
-                                        data-dismiss="modal">Close</button>
-                                    <button type="submit" class="buttonloginregis submitbtn" data-dismiss="modal"
-                                        onclick="register()">submit</button>
-
-                                </div>
-                            </form>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form action="/action_page.php">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" placeholder="email" name="email">
                         </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="password" name="pswd">
+                        </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                            </label>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="loginposition">
+                                <button type="button" class="buttonloginregisII closebtn"
+                                    data-dismiss="modal">Close</button>
+                                <button type="submit" class="buttonloginregisII loginbtn" data-dismiss="modal"
+                                    onclick="login()">Login</button>
 
-                     
-
-
-                    </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div> -->
-        </ul>
-    </nav>
+            </div>
+        </div>
+    </div>
 
     <div class="imglogo">
         <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/5471769969637.560dd4b8d6c3a.png">

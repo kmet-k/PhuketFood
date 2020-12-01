@@ -19,7 +19,24 @@
     margin-bottom: 2rem;
     font-weight: 300;
     font-size: 1.5rem;
+    color: green;
   }
+
+  .cardsuccese :hover {
+    text-decoration: underline;
+  }
+
+
+  .cardsuccese {
+    margin-bottom: auto 0;
+    font-weight: 100;
+    font-size: 1rem;
+    color: green;
+    text-decoration: none;
+    
+  }
+
+  
   
   .card-signin .card-img-left {
     width: 45%;

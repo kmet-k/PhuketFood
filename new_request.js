@@ -13,6 +13,8 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+const auth = firebase.auth();
+
 var db = firebase.firestore();
 var img = "";
 var setImg = function (input) {
@@ -30,7 +32,57 @@ var getId = function () {
     return id
 }
 
+var user = '';
+var setUser = function (input) {
+    user = input
+}
+var getUser = function () {
+    return user
+}
+
+
+
 $(document).ready(function () {
+    
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          // User is signed in.
+          console.log(user);
+          console.log(user.email);
+          emailuser = user.email
+          setUser(emailuser)
+          $("#logoutuser").show();
+          $("#loginuser").hide();
+          $("#hideUsernotlogin").show();
+          $("#hideandshowaddmenubtn").show();
+          $(".hideandshowcollecbtn").show();
+          $("#hideandshowconcollectionbtn").hide();
+          if(user.email == "admin@gmail.com"){
+              console.log(user.email+".........");
+            $("#hideandshowconcollectionbtn").show();
+        }else{
+            console.log("testlogout");
+            $("#hideandshowconcollectionbtn").hide();
+            $("#hidconfirmcrad").hide();
+            window.location.href = 'index.html';
+        }
+     
+           
+    
+        } else {
+          // No user is signed in.
+          $("#hideandshowconcollectionbtn").hide();
+          $("#hideandshowaddmenubtn").hide();
+          $(".hideandshowcollecbtn").hide();
+          $("#logoutuser").hide();
+          $("#loginuser").show();
+          $("#hideUsernotlogin").hide();
+          $("#hidconfirmcrad").hide();
+          window.location.href = 'index.html';
+        }
+      });
+    
+
     db.collection("type").orderBy("id_Type", "asc").get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
             var option = `<option value="${doc.data().id_Type}">${doc.data().type}</option>`
@@ -91,6 +143,13 @@ $(document).ready(function () {
                     , "background-size": "100% 100%"
                     , "margin-top": "3%"
                 })
+            }else{
+                $('.imgCard' + id).css({
+                    "background-image": 'url("https://images-ext-1.discordapp.net/external/GWA32lG0uJHWMBMiqYcE5WM7A3yxEhn7rKK61qjE3bE/https/cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png")'
+                    , "height": "200px"
+                    , "background-size": "100% 100%"
+                    , "margin-top": "3%"
+                })
                 console.log('he');
             }
 
@@ -118,9 +177,17 @@ $(document).ready(function () {
     $('#addPhoto').on('change', function () {
         imagesPreview(this, 'div.gallery');
     });
+
+    
+    var selectbtn = `<a class="collectionbtn" onclick="collectionlist()">Collection</a>`
+
+    $("#selectcollec").append(selectbtn);
+
+    
 })
 
 function createModal(ch, en, th, type, meat, img, id) {
+    document.getElementById("savedata").disabled = false;
     $(".gallery").empty()
     $('input[name="Recommend"]').prop('checked', false);
     $('input[name="spicy"]').prop('checked', false);
@@ -134,6 +201,7 @@ function createModal(ch, en, th, type, meat, img, id) {
     var img = `<img src="${img}" class="imageGallery">`
     $(img).appendTo(".gallery");
     setId(id)
+
 
 
 }
@@ -188,13 +256,14 @@ function saveData() {
     }
 
     if (checkEng == true && checkChinese == true && checkThai == true && checkRec == true && checkSpicy == true && checkImg == true) {
-        db.collection("menu").get().then(snap => {
+        document.getElementById("savedata").disabled = true;
+        db.collection("menuNew").get().then(snap => {
             size = snap.size
             console.log(size);
         }).then(function () {
-            id_Menu = "m_" + (size + 1)
+            id_Menu = "m_" + (size + 100)
 
-            db.collection("menu").add({
+            db.collection("menuNew").add({
                 chinese_Name: chinese,
                 english_Name: english,
                 thai_Name: thai,
@@ -218,4 +287,52 @@ function saveData() {
         })
     }
 
+}
+
+
+function openconmenubtn() {
+    window.open('new_request.html');
+}
+
+
+function openaddmenubtn() {
+    window.open('request.html');
+}
+
+
+function collectionlist() {
+    var setemailuser = getUser()
+    localStorage.setItem("emailusercollection", setemailuser)
+    window.open('allCollection.html');
+}
+
+
+    
+
+function login() {
+
+    var getemail = document.getElementById("email").value;
+    var getpassword = document.getElementById("pwd").value;
+
+    firebase.auth().signInWithEmailAndPassword(getemail, getpassword).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        alert("Error  : " + errorMessage);
+        // ...
+
+    });
+
+}
+
+function registerbtn() {
+    window.open('register.html');
+}
+
+function logout() {
+    auth.signOut().then(function () {    
+    });
+    console.log("ล๊อคเอ๊า");
+    window.location.href = 'index.html';
 }

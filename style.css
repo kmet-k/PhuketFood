@@ -341,12 +341,13 @@ select::-ms-expand {	display: none; }
     position: absolute;
   }
   .bgdiv{
-      background-color: rgb(147, 21, 158);
+      background-color: #EDBA12;
       padding: 40px 10px;
   }
 
   .hdiv{
-    background-color:orange;
+    background-color:rgb(25,25,25);
+    position: relative;
     width: 100%;
     padding: 1%;
     border: none;
@@ -354,11 +355,11 @@ select::-ms-expand {	display: none; }
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 100px;
     margin: 4px 2px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.6ss;
-    border-radius: 4px;
+    border-radius: 10px;
   }
 
   .btnshowall{
@@ -371,98 +372,161 @@ select::-ms-expand {	display: none; }
   .register{
     position: relative;
     right: 0;
-    left: 42%;
+    left: 530%;
     margin-top: 10px;
   }
-  .buttonloginregis {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding:  7px 32px;
+
+  .logoutcss{
+    position: relative;
+    right: 0;
+    left: 1850%;
+    margin-top: 10px;
+  }
+
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.6ss;
-    border-radius: 4px;
+  }
+  
+  .topnav a:hover {
+    background-color: gray;
+  }
+  
+  .topnav-right {
+    float: right;
+  }
+
+ 
+.buttonloginregis {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.loguotbtncss{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
 
 }
-.button1:hover {
-  background-color: white; 
-  color: black; 
-  border: 2px solid orange;
-}
-.button1 {
-  background-color: orange;
+
+.confirmCollec{
   color: white;
-  border: 2px solid orange;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
-.button2:hover {
-  background-color: white; 
-  padding: 7px 32px;
-  color: black; 
-  border: 2px solid #4B0082;
-}
-.button2 {
-  background-color: #4B0082;
+.collectionbtn{
   color: white;
-  border: 2px solid #4B0082
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.addmenubtn{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+
+.buttonloginregisII {
+color: white;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 18px;
+height: 40px;
+padding: 4px;
+padding-left: 25px;
+padding-right: 25px;
 }
 
 .regisbtn:hover {
-  background-color: white;
-  padding: 7px 32px;
-  color: black; 
-  border: 2px solid #4B0082;
+background-color: DarkOrchid;
+border: none
 }
+
 .regisbtn{
-  background-color: #4B0082;
-  color: white;
-  border: 2px solid #4B0082
+background-color: #4B0082;
+color: white;
+border: none;
+border-radius: 9px;
 }
 
 .resbtnposition{
-  position: absolute;
-    right:70%;
-    left: 0;
-    margin-top: 10px;
+position: absolute;
+  right:70%;
+  left: 0;
+  margin-top: 10px;
 }
 
 .loginbtn:hover{
-  background-color: white;
-  padding: 7px 32px;
-  color: black; 
-  border: 2px solid orange;
+background-color: #F3C220;
+border: none;
 }
 
 .loginbtn{
-  background-color: orange;
-  color: white;
-  border: 2px solid orange;
+background-color: orange;
+color: white;
+border: none;
+border-radius: 9px;
 }
+
 .loginposition{
   position: relative;
   margin: auto;
     right:0;
-    left: 50%;
-    margin-top: 10px;
+    left: 32%;
 }
 
 .closebtn:hover{
-  background-color: white;
-  padding: 7px 32px;
-  color: black; 
-  border: 2px solid red;
-
+background-color: #DB1E1E;
+border: none;
 }
 
 .closebtn{
-  background-color: red;
-  color: white;
-  border: 2px solid red;
+background-color: DarkRed;
+color: white;
+border: none;
+border-radius: 9px;
 }
 
 .submitbtn:hover{
@@ -485,183 +549,208 @@ select::-ms-expand {	display: none; }
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
-  top: 10%;
-  bottom: 5%;
+  top: 5%;
+  bottom: 10%;
 }
 #togglebtn1{
-  background-color: #4B0082; /* Green */
   position: absolute;
-  color: white;
-  padding: 5px 10px;
+  background-color: yellow;
+  color: black;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  left: 94%;
-  top: auto 0;
-  bottom:5%;
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 0;
+  right: 0;
   
 }
 
+
 #togglebtn{
-  background-color:  #4B0082; /* Green */
   position: absolute;
-  color: white;
-  padding: 5px 10px;
+  background-color: yellow;
+  color: black;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  left: 94%;
-  top: auto 0;
-  bottom:5%;
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 0;
+  right: 0;
 }
 
+
+
 #togglebtn2{
-  background-color: #4B0082; /* Green */
   position: absolute;
-  color: white;
-  padding: 5px 10px;
+  background-color: yellow;
+  color: black;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  left: 94%;
-  top: auto 0;
-  bottom:5%;
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 0;
+  right: 0;
 
 }
 
 #togglebtn3{
 
-  background-color: #4B0082; /* Green */
   position: absolute;
-  color: white;
-  padding: 5px 10px;
+  background-color: yellow;
+  color: black;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  left: 94%;
-  top: auto 0;
-  bottom:5%;
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 0;
+  right: 0;
 }
 
 #togglebtn4{
-  background-color:  #4B0082; /* Green */
   position: absolute;
-  color: white;
-  padding: 5px 10px;
+  background-color: yellow;
+  color: black;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  left: 94%;
-  top: auto 0;
-  bottom:5%;
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 0;
+  right: 0;
 
 }
 
 #togglebtn5{
-  background-color:  #4B0082; /* Green */
   position: absolute;
-  color: white;
-  padding: 5px 10px;
+  background-color: yellow;
+  color: black;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  left: 94%;
-  top: auto 0;
-  bottom:5%;
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 0;
+  right: 0;
 
 }
 
 #togglebtn6{
-  background-color: #4B0082; /* Green */
   position: absolute;
-  color: white;
-  padding: 5px 10px;
+  background-color: yellow;
+  color: black;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  left: 94%;
-  top: auto 0;
-  bottom:5%;
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 0;
+  right: 0;
 
 }
 
 #togglebtn7{
 
-  background-color:  #4B0082; /* Green */
   position: absolute;
-  color: white;
-  padding: 5px 10px;
+  background-color: yellow;
+  color: black;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  left: 94%;
-  top: auto 0;
-  bottom:5%;
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 0;
+  right: 0;
 }
 
 #togglebtn8{
-  background-color:  #4B0082; /* Green */
   position: absolute;
-  color: white;
-  padding: 5px 10px;
+  background-color: yellow;
+  color: black;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  left: 94%;
-  top: auto 0;
-  bottom:5%;
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 0;
+  right: 0;
 
 }
 #togglebtn9{
-  background-color:  #4B0082; /* Green */
   position: absolute;
-  color: white;
-  padding: 5px 10px;
+  background-color: yellow;
+  color: black;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  left: 94%;
-  top: auto 0;
-  bottom:5%;
-
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 0;
+  right: 0;
 }
 
 #togglebtn10{
-  background-color:  #4B0082; /* Green */
   position: absolute;
-  color: white;
-  padding: 5px 10px;
+  background-color: yellow;
+  color: black;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  left: 94%;
-  top: auto 0;
-  bottom:5%;
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 0;
+  right: 0;
 
 }
 
 #togglebtn11{
-  background-color: #4B0082; /* Green */
   position: absolute;
-  color: white;
-  padding: 5px 10px;
+  background-color: yellow;
+  color: black;
   text-align: center;
   text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  left: 94%;
-  top: auto 0;
-  bottom:5%;
-
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  top: 0;
+  right: 0;
 }

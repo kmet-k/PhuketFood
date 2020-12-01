@@ -1,3 +1,60 @@
+*{
+  margin: 0;
+  padding: 0;
+
+}
+
+#map {
+  height: 500px;
+  width: 50%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.aa:hover {
+  color: blue;
+}
+
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  color: #fff;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.topnav a:hover {
+  background-color: gray;
+}
+
+.topnav-right {
+  float: right;
+}
+
+/* Make the image fully responsive */
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+}
+
+.CCpop {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  z-index: 8;
+}
+
+.pullleft {
+  float: left
+}
 .bgcolor{
     background-color:rgb(233, 233, 233);
     text-align: center;
@@ -6,7 +63,7 @@
   .register{
     position: relative;
     right: 0;
-    left: 42%;
+    left: 530%;
     margin-top: 10px;
   }
 .allbtnposition{
@@ -15,52 +72,89 @@
   margin-top: 5px;
 }
   .buttonloginregis {
-    background-color: #4CAF50; /* Green */
-    border: none;
     color: white;
-    padding:  7px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.6ss;
-    border-radius: 4px;
-
-}
-.button1:hover {
-  background-color: white; 
-  color: black; 
-  border: 2px solid orange;
-}
-.button1 {
-  background-color: orange;
-  color: white;
-  border: 2px solid orange;
+    font-size: 20px;
+    height: 50px;
+    padding: 8px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
-.button2:hover {
-  background-color: white; 
-  padding: 7px 32px;
-  color: black; 
-  border: 2px solid #4B0082;
-}
-.button2 {
-  background-color: #4B0082;
+.buttonloginregisII {
   color: white;
-  border: 2px solid #4B0082
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  height: 40px;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
+
+.loguotbtncss{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+
+}
+
+.collectionbtn{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.confirmCollec{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.addmenubtn{
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  height: 50px;
+  padding: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+
 .regisbtn:hover {
-  background-color: white;
-  padding: 7px 32px;
-  color: black; 
-  border: 2px solid #4B0082;
+  background-color: DarkOrchid;
+  border: none
 }
+
 .regisbtn{
   background-color: #4B0082;
   color: white;
-  border: 2px solid #4B0082
+  border: none;
+  border-radius: 9px;
 }
 
 .resbtnposition{
@@ -71,37 +165,34 @@
 }
 
 .loginbtn:hover{
-  background-color: white;
-  padding: 7px 32px;
-  color: black; 
-  border: 2px solid orange;
+  background-color: #F3C220;
+  border: none;
 }
 
 .loginbtn{
   background-color: orange;
   color: white;
-  border: 2px solid orange;
+  border: none;
+  border-radius: 9px;
 }
+
 .loginposition{
   position: relative;
   margin: auto;
     right:0;
-    left: 5%;
-    margin-top: 10px;
+    left: 4%;
 }
 
 .closebtn:hover{
-  background-color: white;
-  padding: 7px 32px;
-  color: black; 
-  border: 2px solid rgb(212, 1, 1);
-
+  background-color: #DB1E1E;
+  border: none;
 }
 
 .closebtn{
-  background-color: rgb(212, 1, 1);
+  background-color: DarkRed;
   color: white;
-  border: 2px solid rgb(212, 1, 1);
+  border: none;
+  border-radius: 9px;
 }
 
 .submitbtn:hover{
@@ -150,4 +241,14 @@
 #disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+.bg {
+  /* Full height */
+  height: 529px; 
+  width: 98%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
